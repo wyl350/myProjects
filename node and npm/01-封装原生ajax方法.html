@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // function get(url, callback) {
+    //   var oReq = new XMLHttpRequest()
+    //   // 当请求加载成功之后要调用指定的函数
+    //   oReq.onload = function () {
+    //     // 我现在需要得到这里的 oReq.responseText
+    //     callback(oReq.responseText)
+    //   }
+    //   oReq.open("get", url, true)
+    //   oReq.send()
+    // }
+
+    // get('data.json', function (data) {
+    //   console.log(data)
+    // })
+
+    (function (url, callback) {
+      var oReq = new XMLHttpRequest()
+      // 当请求加载成功之后要调用指定的函数
+      oReq.onload = function () {
+        // 我现在需要得到这里的 oReq.responseText
+        callback(oReq.responseText)
+      }
+      oReq.open("get", url, true)
+      oReq.send()
+    })('data.json', function (data) {
+      console.log(data)
+    })
+
+  </script>
+</body>
+
+</html>

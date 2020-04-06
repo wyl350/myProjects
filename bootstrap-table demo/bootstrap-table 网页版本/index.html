@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Hello, Bootstrap Table!</title>
+
+  <!--css-->
+  <link rel="stylesheet" type="text/css" href="./js_easy/bootstrap/bootstrap.min.css" />
+  <link rel="stylesheet" type="text/css" href="./js_easy/bootstrap-table/bootstrap-table.min.js" />
+  <!--js-->
+  <script src="./js_easy/jquery/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+  <script src="./js_easy/popperjs/popper.js"></script>
+  <script src="./js_easy/bootstrap/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
+  <script src="./js_easy/bootstrap-table/bootstrap-table.min.js" type="text/javascript" charset="utf-8"></script>
+  <script src="./js_easy/bootstrap-table/bootstrap-table-zh-CN.min.js" type="text/javascript" charset="utf-8"></script>
+
+<body>
+
+  <input type="text" id="sysWebsiteTitle" name="sysWebsiteTitle">
+  <button type="button" οnclick="refreshData()" class="btn btn-success">查询</button>
+
+  <div id="toolbar"></div>
+  <table id="table"></table>
+
+  <script>
+    const init_format = (value, row, index) => {
+      var id = row.sysWebsiteId;
+      var html = "";
+      html += "<a class='ml-5' href=\"javascript:void(0)\" title='编辑'></a>";
+      html += "<a class='ml-5'  href=\"javascript:void(0)\" title='删除'></a>";
+      return html;
+    }
+
+    // const refreshData = () => {
+    //   _table.bootstrapTable('refresh', {
+    //     pageNumber: 1,
+    //   });
+    // }
+
+
+
+    const delById = (value, row, index) => {
+      var id = row.sysWebsiteId;
+      return html;
+    }
+
+    //初始化bootstrap table ，并且启动它
+    const init = () => {
+      $('#table').bootstrapTable({
+        // 获取数据设置
+        url: './dataApi/data/example.json',
+        dataField: "rows",// 配合url使用，是可以手动配置的。默认是 rows 。
+        method: 'get',
+        data: '', // 这个也是可以提供数据的。
+        onLoadSuccess: function () {
+          console.info("加载成功");
+        },
+        cache: true,                       //是否使用缓存，默认为true，所以一般情况下需要设置一下这个属性（*）  不会
+
+
+
+        // 工具栏设置
+        toolbar: "#toolbar",        // 工具栏 所用容器
+        search: true,
+        strictSearch: false, // 这个必须是单元格内的内容与搜索完全匹配才显示
+        showColumns: true,          //是否显示所有的列 
+        showRefresh: true,         // 是否显示刷新按钮
+        showToggle: true,          // 是否显示详细视图和列表视图的切换按钮
+
+
+
+        // height: document.documentElement.clientHeight,//根据页面高度定义表格高度  可以设置 1000 等数据。
+        // 分页设置
+        pagination: true,  //表格底部显示分页条
+        sidePagination: "server",
+        pageNumber: 1, //初始化翻页的页码
+        pageSize: 10, //每页显示多少条数据
+        pageList: [10, 25, 50, 100, 1000, 10000],
+
+        // 外观设置
+        striped: false,              // 是否显示行间隔色 ,没用
+        locale: "zh-CN",            // 语言
+        // height: document.documentElement.clientHeight,//根据页面高度定义表格高度  可以设置 1000 等数据。这是表格的高度
+        minimumCountColumns: 1,             //最少允许的列数
+        clickToSelect: true,       // 是否启用点击选中行  meiyouyong
+        cardView: false,            // 是否显示详细视图javascript:void(0) 如果设置为true 刷新页面后会直接显示 详细视图。而不是一般的列表。
+        detailView: false,                   //是否显示父子表 有点效果，不太明白。
+        sortable: true,            // 是否启用排序
+        sortOrder: "asc",           // 排序方式
+
+        // 不懂的
+        escape: false, //启动转义字符  不懂
+
+        queryParamsType: '',//设置请求参数格式
+        queryParams: function queryParams(params) {   //设自定义查询参数  //传递参数（*）
+          var param = {
+            pageSize: params.pageSize,   //每页多少条数据
+            pageIndex: params.pageNumber, // 页码
+            sysWebsiteTitle: $("#sysWebsiteTitle").val(),//菜单标题
+            sysCategoryId: $("#sysCategoryId").val() //网址分类id
+          };
+          return param;
+        },
+
+        // 设置字段       
+        columns: [
+          //   sortable: true,  // 这里不能设置false，不知道为什么？          //   width: 280,  // 宽度设置，好用。
+          //   align: 'left',   // 默认向左          //   uniqueId: "id",             // 一般为主键
+          {
+            field: 'id',
+            title: 'Item ID'
+          }, {
+            field: 'name',
+            title: 'Item Name'
+          }, {
+            field: 'price',
+            title: 'Item Price'
+          }, {
+            field: 'opt',
+            title: '操作',
+            formatter: (value, row, index) => {
+              var id = row.sysWebsiteId;
+              var html = '';
+              html += `<a class='ml-5' href='javascript:void(0)' title='编辑本行'>编辑</a>`;
+              html += `<a class='ml-5' href='javascript:void(0)' onclick='delById()' title='删除本行'>删除</a>`;
+              return html;
+            },
+          },
+        ]
+      });
+    }
+
+    $(function () {
+      init();//启动表格插件
+    });
+  </script>
+</body>
+
+</html>

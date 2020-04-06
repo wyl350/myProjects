@@ -1,0 +1,14 @@
+# --reporter spec
+--reporter tap
+--recursive
+--growl
+
+
+
+# server-tests
+# --recursive
+# 上面代码指定运行server-tests目录及其子目录之中的测试脚本。
+
+
+
+
