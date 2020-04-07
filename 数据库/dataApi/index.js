@@ -16,5 +16,4 @@ app.get('/data/tableData', function (req, res) {
   res.json(data);
 });
 
-
 app.listen(1688);
