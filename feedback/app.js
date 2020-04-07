@@ -4,10 +4,7 @@ const url = require('url')
 const template = require('art-template')
 
 const getData = require('./data/index.js')
-console.log(
-  getData.getobjs,
-  getData.save,
-);
+
 
 // const {
 //   add,

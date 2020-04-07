@@ -8,14 +8,15 @@
   <title>Hello, Bootstrap Table!</title>
 
   <!--css-->
-  <link rel="stylesheet" type="text/css" href="./js_easy/bootstrap/bootstrap.min.css" />
-  <link rel="stylesheet" type="text/css" href="./js_easy/bootstrap-table/bootstrap-table.min.js" />
+  <link rel="stylesheet" type="text/css" href="../public/lib/bootstrap/bootstrap.min.css" />
+  <link rel="stylesheet" type="text/css" href="../public/lib/bootstrap-table/bootstrap-table.min.css" />
   <!--js-->
-  <script src="./js_easy/jquery/jquery.min.js" type="text/javascript" charset="utf-8"></script>
-  <script src="./js_easy/popperjs/popper.js"></script>
-  <script src="./js_easy/bootstrap/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
-  <script src="./js_easy/bootstrap-table/bootstrap-table.min.js" type="text/javascript" charset="utf-8"></script>
-  <script src="./js_easy/bootstrap-table/bootstrap-table-zh-CN.min.js" type="text/javascript" charset="utf-8"></script>
+  <script src="../public/lib/jquery/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+  <script src="../public/lib/popperjs/popper.js"></script>
+  <script src="../public/lib/bootstrap/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
+  <script src="../public/lib/bootstrap-table/bootstrap-table.min.js" type="text/javascript" charset="utf-8"></script>
+  <script src="../public/lib/bootstrap-table/bootstrap-table-zh-CN.min.js" type="text/javascript"
+    charset="utf-8"></script>
 
 <body>
 
@@ -40,8 +41,6 @@
     //   });
     // }
 
-
-
     const delById = (value, row, index) => {
       var id = row.sysWebsiteId;
       return html;
@@ -51,7 +50,7 @@
     const init = () => {
       $('#table').bootstrapTable({
         // 获取数据设置
-        url: './dataApi/data/example.json',
+        url: '../public/data/example.json',
         dataField: "rows",// 配合url使用，是可以手动配置的。默认是 rows 。
         method: 'get',
         data: '', // 这个也是可以提供数据的。
