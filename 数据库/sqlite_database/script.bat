@@ -9,3 +9,5 @@ REM 依据建库脚本新建数据库
 
 REM SQLITE3 Persons.DB .dump > result.sql  
 REM 备份到文件result.sql
+
+

@@ -1,6 +1,6 @@
 const express = require('express')
 const bodyParser = require('body-parser')
-const getData = require('./data/index.js')
+const getData = require('./public/data/index.js')
 
 const app = express()
 
@@ -29,8 +29,6 @@ app.get('/post', function (req, res) {
 })
 
 app.post('/post', function (req, res) {
-  console.log(req.body);
-
   const comment = req.body
   comment.dateTime = '2017-11-5 10:58:51'
 

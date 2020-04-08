@@ -47,7 +47,7 @@ const save = async (filepath, propertyName, obj) => {
   const data = await readFile(filepath)
   const objs = await getPropertyObjs(data, propertyName)
   obj.id = objs[objs.length - 1].id + 1
-  objs.unshift(obj)
+  objs.push(obj)
   const writedata = JSON.stringify(data)
   await writeFile(filepath, writedata)
 }
