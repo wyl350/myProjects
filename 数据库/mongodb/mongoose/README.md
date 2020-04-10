@@ -14,5 +14,4 @@
   - 官网：http://mongoosejs.com/
   - 官方指南：http://mongoosejs.com/docs/guide.html
   - 官方API文档：http://mongoosejs.com/docs/api.html
-## mysql
-`npm install mysql --save`
+
