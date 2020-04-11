@@ -4,7 +4,7 @@
     > 相当于 npm init --yes
 1. npm uninstall --help
     > 查看具体的命令帮助
-1. 淘宝npm 镜像
+1. 淘宝 npm 镜像
     > 地址: https://npm.taobao.org/
     - npm install --global cnpm 
     - npm install jquery --registry=http://registry.npm.taobao.org

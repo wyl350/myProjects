@@ -10,6 +10,3 @@ https://www.jianshu.com/p/9cfc5cdb0aeb
 $ npm install -g json-server
 1. 
 
-
-
-

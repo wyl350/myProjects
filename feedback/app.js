@@ -49,8 +49,6 @@ http
         //   console.log(err);
         //   res.end(err)
         // })
-
-
       })
     }
     else if (pathname === '/post') {
