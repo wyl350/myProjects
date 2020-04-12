@@ -1,3 +1,30 @@
+// 数据
+const comments = [{
+  name: '张三',
+  message: '今天天气不错！',
+  dateTime: '2015-10-16'
+},
+{
+  name: '张三2',
+  message: '今天天气不错！',
+  dateTime: '2015-10-16'
+},
+{
+  name: '张三3',
+  message: '今天天气不错！',
+  dateTime: '2015-10-16'
+},
+{
+  name: '张三4',
+  message: '今天天气不错！',
+  dateTime: '2015-10-16'
+},
+{
+  name: '张三5',
+  message: '今天天气不错！',
+  dateTime: '2015-10-16'
+}]
+
 const middleware = (app) => {
   const template = require('express-art-template')
   const bodyParser = require('body-parser')
@@ -12,32 +39,7 @@ const staticResources = (express, app) => {
 const mountRouter = (app) => {
   const express = require('express')
   const router = express.Router()
-  const comments = [{
-    name: '张三',
-    message: '今天天气不错！',
-    dateTime: '2015-10-16'
-  },
-  {
-    name: '张三2',
-    message: '今天天气不错！',
-    dateTime: '2015-10-16'
-  },
-  {
-    name: '张三3',
-    message: '今天天气不错！',
-    dateTime: '2015-10-16'
-  },
-  {
-    name: '张三4',
-    message: '今天天气不错！',
-    dateTime: '2015-10-16'
-  },
-  {
-    name: '张三5',
-    message: '今天天气不错！',
-    dateTime: '2015-10-16'
-  }
-  ]
+
   app.get('/', function (req, res) {
     res.render('index.html', {
       comments: comments,
@@ -63,7 +65,7 @@ const listenPort = (app, port) => {
     })
 }
 
-const http1 = (middleware, staticResources, mountRouter, listenPort) => {
+const http1 = () => {
   const express = require('express')
   const app = express()
   middleware(app)
@@ -72,7 +74,6 @@ const http1 = (middleware, staticResources, mountRouter, listenPort) => {
   listenPort(app, 3000)
 }
 
-// http1(middleware, staticResources, mountRouter, listenPort)
 
 module.exports = {
   http1

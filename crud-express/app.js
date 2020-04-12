@@ -1,32 +1,73 @@
-const app = (port) => {
-  const
-    // 引入依赖包
-    express = require('express'),
-    bodyParser = require('body-parser'),
-    // 引入依赖模块
-    router = require('./router'),
-    app = express()
+// Data
+// const fileDatabase = require('../functions/fileDatabase')
+// fileDatabase.
+// router
+const router = (router) => {
+  router.get('/', function (req, res) {
+    res.send('index444')
+  })
 
-  app
-    // 开放静态资源
-    .use('/node_modules/', express.static('./node_modules/'))
-    .use('/public/', express.static('./public/'))
-
-    // 配置 express-art-template
-    .engine('html', require('express-art-template'))
-
-    // 配置 bodyParser
-    .use(bodyParser.urlencoded({ extended: false })).use(bodyParser.json())
-
-    // 挂载路由模块
-    .use(router)
-
-    // 监听端口,启动服务。
-    .listen(port, function () {
-      console.log(`running at port ${port}...`)
+  router.get('/students', function (req, res) {
+    Student.find(function (err, students) {
+      if (err) {
+        return res.status(500).send('Server error.')
+      }
+      res.render('index.html', {
+        fruits: [
+          '苹果',
+          '香蕉',
+          '橘子'
+        ],
+        students: students
+      })
     })
+  })
+
+  router.get('/students/new', function (req, res) {
+    res.render('new.html')
+  })
+
+  router.post('/students/new', function (req, res) {
+    Student.save(req.body, function (err) {
+      if (err) {
+        return res.status(500).send('Server error.')
+      }
+      res.redirect('/students')
+    })
+  })
+
+  router.get('/students/edit', function (req, res) {
+    Student.findById(parseInt(req.query.id), function (err, student) {
+      if (err) {
+        return res.status(500).send('Server error.')
+      }
+      res.render('edit.html', {
+        student: student
+      })
+    })
+  })
+
+  router.get('/students/delete', function (req, res) {
+    Student.deleteById(req.query.id, function (err) {
+      if (err) {
+        return res.status(500).send('Server error.')
+      }
+      res.redirect('/students')
+    })
+  })
+
+  router.post('/students/edit', function (req, res) {
+    Student.updateById(req.body, function (err) {
+      if (err) {
+        return res.status(500).send('Server error.')
+      }
+      res.redirect('/students')
+    })
+  })
 }
 
-app(3000)
+const { http } = require('../functions/http.js')
 
-app(3001)
+http(router)
+
+
