@@ -12,3 +12,4 @@
 |POST|/studens/edit||id、name、age、gender、hobbies|处理编辑请求|
 |GET|/students/delete|id||处理删除请求|
 
+有一个工作没有做，就是要整合 文档数据库和mongodb数据库的前端整合。现在前端是适合mongodb的，不符合文件数据库。

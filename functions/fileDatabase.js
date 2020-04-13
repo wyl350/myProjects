@@ -4,7 +4,7 @@ const { readFileObj, writeFileObj } = require('./IO')
 let filepath, propertyName
 const setfilepath = (value) => { filepath = value }
 const setpropertyName = (value) => { propertyName = value }
-// 中间件
+// 中间件：这四个中间件的作用，都没有返回值，处理的是一个包含多个对象的数组，完成对这个数组的增删改查。最终实现对文件数据库的功能。
 const getobjs = (objs) => {
   return objs[propertyName]
 }
@@ -38,7 +38,7 @@ const sdu = async (middleware, param) => {
 // 增删改查
 
 
-const findAll = async () => {
+const find = async () => {
   const fileobj = await readFileObj(filepath)
   return getobjs(fileobj)
 }
@@ -59,7 +59,7 @@ const deleteById = async (id) => { sdu(deleteByIdM, id) }
 const updateById = async (obj) => { sdu(updateByIdM, obj) }
 // 导出
 module.exports = {
-  findAll,findById, save, deleteById, updateById,
+  find, findById, save, deleteById, updateById,
 
   setfilepath, setpropertyName
 }
