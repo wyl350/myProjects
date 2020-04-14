@@ -14,11 +14,6 @@ const router = (router) => {
   router.get('/students', function (req, res) {
     fileDb.find().then((students) => {
       res.render('index.html', {
-        fruits: [
-          '苹果',
-          '香蕉',
-          '橘子'
-        ],
         students: students
       })
     })
@@ -31,6 +26,8 @@ const router = (router) => {
     res.redirect('/students')
   })
   router.get('/students/edit', function (req, res) {
+    req.query.id
+    
     fileDb.findById(parseInt(req.query.id)).then((student) => {
       res.render('edit.html', {
         student: student
@@ -38,11 +35,11 @@ const router = (router) => {
     })
   })
   router.post('/students/edit', function (req, res) {
-    fileDb.updateById(req.body)
+    fileDb.findByIdAndUpdate(req.body)
     res.redirect('/students')
   })
   router.get('/students/delete', function (req, res) {
-    fileDb.deleteById(req.query.id)
+    fileDb.findByIdAndRemove(req.query.id)
     res.redirect('/students')
   })
 }

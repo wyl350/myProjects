@@ -9,19 +9,19 @@ const getobjs = (objs) => {
   return objs[propertyName]
 }
 const savem = (objs, obj) => {
-  obj.id = objs[objs.length - 1].id + 1
+  obj._id = objs[objs.length - 1]._id + 1
   objs.push(obj)
 }
-const deleteByIdM = (objs, id) => {
+const deleteByIdM = (objs, _id) => {
   const deleteId = objs.findIndex((item) => {
-    return item.id === parseInt(id)
+    return item._id === parseInt(_id)
   })
   objs.splice(deleteId, 1)
 }
 const updateByIdM = (objs, obj) => {
-  obj.id = parseInt(obj.id)
+  obj._id = parseInt(obj._id)
   const stu = objs.find((item) => {
-    return item.id === obj.id
+    return item._id === obj._id
   })
   for (const key in obj) {
     stu[key] = obj[key]
@@ -43,23 +43,29 @@ const find = async () => {
   return getobjs(fileobj)
 }
 
-const findById = async (id) => {
+const findById = async (_id) => {
   const fileobj = await readFileObj(filepath)
   const objs = await getobjs(fileobj)
   let obj
   objs.forEach(element => {
-    if (element.id === id) {
+    if (element._id === _id) {
       obj = element
     }
   })
   return obj
 }
 const save = async (obj) => { sdu(savem, obj) }
-const deleteById = async (id) => { sdu(deleteByIdM, id) }
-const updateById = async (obj) => { sdu(updateByIdM, obj) }
+const findByIdAndRemove = async (_id) => { sdu(deleteByIdM, _id) }
+const findByIdAndUpdate = async (obj) => { sdu(updateByIdM, obj) }
 // 导出
 module.exports = {
-  find, findById, save, deleteById, updateById,
-
-  setfilepath, setpropertyName
+  find, findById, save, findByIdAndUpdate, findByIdAndRemove,
+  setfilepath, setpropertyName,
 }
+
+
+// Student.find()
+// new Student(req.body).save()
+// Student.findById(req.query.id)
+// Student.findByIdAndUpdate(id, req.body)
+// Student.findByIdAndRemove(id)
