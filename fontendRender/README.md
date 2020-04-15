@@ -8,17 +8,6 @@ json-server --watch data.json
 开启服务
 http-server -c-1
 
-前段速裁网站：
-1. https://blog.csdn.net/weixin_30819163/article/details/101431687
-1. https://www.sucaihuo.com/js
-1. https://www.zhihu.com/question/343800288/answer/811268303
-1. http://www.html5star.com/forum.php?mod=forumdisplay&fid=93&digest=1
-1. https://www.zhihu.com/collection/81181091
-1. https://www.17sucai.com/boards/128162.html
-1. https://www.mcool.com/sc_search-40-2298-0-0-1-p1.html
-1. https://download.csdn.net/download/zc_xy/10200134?utm_source=blogxgwz6
-1. 
-
 
 
 主要 参考 node 视频课件的 第五天 的讲解 promise 的那一部分。
