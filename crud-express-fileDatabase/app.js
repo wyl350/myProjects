@@ -1,13 +1,14 @@
 const path = require('path')
+const fileDbF = require('../functions/fileDatabase')
 
-const fileDb = require('../functions/fileDatabase')
-// const fileDb = require('../functions/mongoDatabase')
+const fileDb = fileDbF(
+  {
+    filepath: '../crud-express-fileDatabase/data/db.json',
+    propertyName: 'students',
+  }
+)
 
-// 属性设置
-fileDb.setfilepath('./data/db.json')
-fileDb.setpropertyName('students')
-
-const router = (router) => {
+const routes = (router) => {
   router.get('/', function (req, res) {
     res.redirect('/students')
   })
@@ -27,7 +28,7 @@ const router = (router) => {
   })
   router.get('/students/edit', function (req, res) {
     req.query.id
-    
+
     fileDb.findById(parseInt(req.query.id)).then((student) => {
       res.render('edit.html', {
         student: student
@@ -46,11 +47,13 @@ const router = (router) => {
 
 
 
-const { setStaticObj, http, } = require('../functions/http.js')
+const { http, } = require('../functions/http.js')
 
-// 属性设置
-setStaticObj({
-  '/public/': path.join(__dirname + '/public/')
+http({
+  routes,
+  port: 3000,
+  staticObj: {
+    '/public/': path.join(__dirname + '/public/')
+  }
 })
 
-http(router)
