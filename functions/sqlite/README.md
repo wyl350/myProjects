@@ -12,6 +12,10 @@ sqlite3几乎支持所有版本的nodejs，同时也可以和nwjs集成。
 > 安装介绍网站：https://blog.csdn.net/qq_16093323/article/details/88226397
 
 按照该网页介绍，下载三个压缩包，只使用其中的两个，一个是工具包，一个是安装包，一个是32位的，一个是64位的，选择其一就可。
+64位电脑使用：以下两个压缩包
+1. sqlite-dll-win64-x64-3310100
+1. sqlite-tools-win32-x86-3310100
+sqliteadmin 是安装包
 
 安装包我已经放入了我的百度网盘->我的笔记 中。
 
@@ -102,4 +106,59 @@ Word中使用数据库数据
 https://wenku.baidu.com/view/e46e3218650e52ea55189830.html
 
 这篇文章是介绍word和数据库结合使用的例子，是不是应该看一下。
+
+
+windows 平台上使用bat 执行新生成的db文件如果重名的话，则不能够生成新的db覆盖已经存在的重名数据库文件。
+
+## head 设置
+
+这是菜鸟上面的： <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+这是vscode默认的：<meta name="viewport" content="width=device-width, initial-scale=1.0">
+1. width=device-width 表示宽度是设备屏幕的宽度。
+1. initial-scale=1 表示初始的缩放比例。
+1. shrink-to-fit=no 自动适应手机屏幕的宽度。
+
+
+## 容器类
+Bootstrap 4 需要一个容器元素来包裹网站的内容。
+
+我们可以使用以下两个容器类：
+
+.container 类用于固定宽度并支持响应式布局的容器。
+.container-fluid 类用于 100% 宽度，占据全部视口（viewport）的容器。
+
+
+## 网格系统
+Bootstrap 提供了一套响应式、移动设备优先的流式网格系统，随着屏幕或视口（viewport）尺寸的增加，系统会自动分为最多 12 列。
+
+我们也可以根据自己的需要，定义列数：Bootstrap 4 的网格系统是响应式的，列会根据屏幕大小自动重新排列。
+
+网格类：
+Bootstrap 4 网格系统有以下 5 个类:
+
+1. .col- 针对所有设备
+1. .col-sm- 平板 - 屏幕宽度等于或大于 576px
+1. .col-md- 桌面显示器 - 屏幕宽度等于或大于 768px)
+1. .col-lg- 大桌面显示器 - 屏幕宽度等于或大于 992px)
+1. .col-xl- 超大桌面显示器 - 屏幕宽度等于或大于 1200px)
+
+Bootstrap4 网格系统规则:
+
+1. 网格每一行需要放在设置了 .container (固定宽度) 或 .container-fluid (全屏宽度) 类的容器中，这样就可以自动设置一些外边距与内边距。
+1. 使用行来创建水平的列组。
+1. 内容需要放置在列中，并且只有列可以是行的直接子节点。
+1. 预定义的类如 .row 和 .col-sm-4 可用于快速制作网格布局。
+1. 列通过填充创建列内容之间的间隙。 这个间隙是通过 .rows 类上的负边距设置第一行和最后一列的偏移。
+1. 网格列是通过跨越指定的 12 个列来创建。 例如，设置三个相等的列，需要使用用三个.col-sm-4 来设置。
+1. Bootstrap 3 和 Bootstrap 4 最大的区别在于 Bootstrap 4 现在使用 flexbox（弹性盒子） 而不是浮动。 Flexbox 的一大优势是，没有指定宽度的网格列将自动设置为等宽与等高列 。 如果您想了解有关Flexbox的更多信息，可以阅读我们的CSS Flexbox教程。
+
+Bootstrap 4 网格的基本结构:
+
+## vBootstrap4 文字排版
+Bootstrap 4 默认设置
+Bootstrap 4 默认的 font-size 为 16px, line-height 为 1.5。
+
+默认的 font-family 为 "Helvetica Neue", Helvetica, Arial, sans-serif。
+
+此外，所有的 <p> 元素 margin-top: 0 、 margin-bottom: 1rem (16px)。
 
