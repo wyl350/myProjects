@@ -22,6 +22,7 @@ mongoosejs 翻译版本教程： http://www.mongoosejs.net/docs/index.html
 > `mongod --version`  
 ## MongoDB 的 卸载
 1. windows 系统 控制面板卸载。
+1. zip 版本的，删除掉环境变量，即可。
 ## mongodb 的 启动
 mongodb 数据库常用的两个执行文件：
 1. 启动执行文件：mongod.exe
@@ -33,6 +34,7 @@ mongodb 数据库常用的两个执行文件：
 管理员模式打开命令行窗口,创建目录，执行下面的语句来创建数据库和日志文件的目录
 1. mkdir c:\data\db
 1. mkdir c:\data\log
+这个规生效的前提是，mongodb 的默认规则就是在 mongod 执行命令程序的根目录下的/data/db 作为自己的数据存储目录。
 #### 创建配置文件
 nongodb 的一个默认规则：nongodb 默认使用执行 mongod 命令所处盘符根目录下的 /data/db 作为自己的数据存储目录,所以第一次执行该命令之前，应当先自己手动新建一个 /data/db 。当然也是可以手动指定数据存储目录路径的。
 1. 指定方法：`mongod --dbpath=数据存储目录路径`
@@ -44,13 +46,14 @@ systemLog:
 storage:
     dbPath: c:\data\db
 ```
+这里应该还有一步指定配置文件的一步。
 ### mongodb 启动的方式
 在 windows 系统中， mongodb 启动有两种方式：
 1. 命令行下运行 MongoDB 服务器
 1. 配置 MongoDB 服务
 #### 命令行下运行 MongoDB 服务器
 > 命令行下运行 MongoDB 服务器
-1. `C:\mongodb\bin\mongod 1.1.dbpath c:\data\db --port 27017`
+1. `C:\mongodb\bin\mongod dbpath c:\data\db --port 27017`
 1. `C:\mongodb\bin\mongo.exe`
 1. 环境变量方式启动和停止 mongodb 。
 环境变量方式本质上仍然是执行 mongodb 数据库的执行文件。只是让mongodb 数据库的执行文件可以在全局的路径中调用，不过这种调用比指定路径调用要费时。
@@ -74,6 +77,7 @@ storage:
 > 注意：启动数据库是连接数据库的前提。
 1. 连接数据库
     - `mongo`
+    - `mongo 127.0.0.1:27017`   这是链接远程的 mongodb 服务的命令，当然是需要远端开启 mangodb 服务的。
 1. 退出连接数据库
     - `exit`
         > 连接状态下输入。
@@ -87,7 +91,7 @@ storage:
     > 切换到指定的数据库，如果没有，则新建。注意，不是立即新建，而是当操作该数据库的时候，就会新建数据库。
 ### 显示当前操作数据库
 - `db`
-    > 注意这里有一个默认规则，默认连接的是 test 数据库，当然该数据库实际并不存在。
+    > 注意这里有一个默认规则，默认连接的是 test 数据库，当然该数据库实际并不存在。代表当前数据库。
 ### 显示当前数据库所有文档集合
 - `show collections`
     > 在当前数据库下，输入该命令，显示当前数据库下的所有集合。
@@ -99,7 +103,7 @@ storage:
 ### 改
 ### 查
 - `db.students.find()`
-        > 查询所有students集合的数据，注意这里的显示会增加一个 默认的唯一不变的 id。
+        > 查询所有 students 集合的数据，注意这里的显示会增加一个 默认的唯一不变的 id。
 
 
 ## mongodb 数据库的 文件备份 恢复以及 文件导入导出
