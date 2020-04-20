@@ -92,18 +92,157 @@ storage:
 ### 显示当前操作数据库
 - `db`
     > 注意这里有一个默认规则，默认连接的是 test 数据库，当然该数据库实际并不存在。代表当前数据库。
+### 删除数据库，删除当前所在的数据库  
+`db.dropDatabase(); `
+
+## mongodb 的 文档集合操作
+数据库中不能直接插入数据，只能往集合(collections)中插入数据。不需要专门创建集合，只 需要写点语法插入数据就会创建集合（insert 语句）。 
+例如：`db.student.insert({“name”:”xiaoming”}); `
+db.student  系统发现 student 是一个陌生的集合名字，所以就自动创建了集合。 
+
 ### 显示当前数据库所有文档集合
 - `show collections`
     > 在当前数据库下，输入该命令，显示当前数据库下的所有集合。
+### 删除集合，删除指定的集合  删除表  
+删除集合 `db.COLLECTION_NAME.drop()`，例如`db.user.drop()`  
+
 ## mongodb 的 增删改查
-### 增
-- `db.students.insertOne({"name":"jack"})`
-    > 在当前数据库新建一个集合，并在集合内插入一条数据（{"name":"jack"}）。这里db相当于已经设置的数据库名称变量。例如 use itcast 。那么这里的db相当于itcast。这里的这个itcast 相当于数据库，students相当于表。
-### 删
-### 改
+### 增 插入数据
+`db.students.insertOne({"name":"jack"})`
+
+在当前数据库新建一个集合，并在集合内插入一条数据（{"name":"jack"}）。这里db相当于已经设置的数据库名称变量。例如 `use itcast` 。那么这里的db相当于`itcast`。这里的这个`itcast` 相当于数据库， `students` 相当于表。
+
+特别注意：插入的第一条数据是和集合的创建以及和数据库的创建相关的，随着数据的插入，数据库创建成功了，集合也创建成功了。
 ### 查
-- `db.students.find()`
-        > 查询所有 students 集合的数据，注意这里的显示会增加一个 默认的唯一不变的 id。
+`db.students.find()`
+        
+查询所有 students 集合的数据，相当于：select * from students; 注意这里的显示会增加一个默认的唯一不变的 id。
+
+`db.userInfo.distinct("name");`
+
+会过滤掉 name 中的相同数据，相当于：select distict name from userInfo; 
+
+`db.userInfo.find({"age": 22}); `
+
+查询age等于22的所有数据，相当于： select * from userInfo where age = 22; 
+
+`db.userInfo.find({age: {$gt: 22}}); `
+
+查询age大于22的所有数据，相当于：select * from userInfo where age >22; 
+
+`db.userInfo.find({age: {$lt: 22}}); ` 
+
+查询age小于22的所有数据，相当于：select * from userInfo where age <22; 
+
+`db.userInfo.find({age: {$gte: 25}});`  
+查询 age >= 25 的记录 ，相当于：select * from userInfo where age >= 25; 
+
+`db.userInfo.find({age: {$lte: 25}});` 
+查询 age <= 25 的记录 ，相当于：select * from userInfo where age <= 25; 
+
+`db.userInfo.find({age: {$gte: 23, $lte: 26}});` 
+查询 age >= 23 并且 age <= 26 ,相当于：select * from userInfo where age >= 23 and age<=26;     注意书写格式  
+
+`db.userInfo.find({name: /mongo/});` 
+查询 name 中包含 mongo 的数据,相当于：select * from userInfo where name like '%mongo%'; 
+
+`db.userInfo.find({name: /^mongo/});  `
+查询 name 中以 mongo 开头的, select * from userInfo where name like ‘mongo%’; 
+      
+`db.userInfo.find({}, {name: 1, age: 1});`  
+查询指定列 name、age 数据,相当于：select name, age from userInfo; 当然 name 也可以用 true 或 false,当用 ture 的情况下河 name:1 效果一样，如果用 false 就 是排除 name，显示 name 以外的列信息。 
+
+`db.userInfo.find({age: {$gt: 25}}, {name: 1, age: 1}); ` 
+查询指定列 name、age 数据, age > 25,相当于：select name, age from userInfo where age >25; 
+  
+`db.userInfo.find({age: {$gt: 25}}, {name: 1, age: 1});`
+查询指定列 name、age 数据, age > 25,相当于：select name, age from userInfo where age >25; 
+
+升序：`db.userInfo.find().sort({age: 1});`  
+降序：`db.userInfo.find().sort({age: -1});` 
+按照年龄排序    1 升序    -1 降序  
+
+`db.userInfo.find({name: 'zhangsan', age: 22});`  
+查询 name = zhangsan, age = 22 的数据,相当于：select * from userInfo where name = ‘zhangsan’ and age = ‘22’; 
+
+`db.userInfo.find().limit(5);`  
+查询前 5 条数据 ,相当于：select top 5 * from userInfo; 
+
+`db.userInfo.find().skip(10);`
+查询 10 条以后的数据,相当于：select * from userInfo where id not in ( selecttop 10 * from userInfo  );
+
+`db.userInfo.find().limit(10).skip(5);` 
+查询在 6-10 之间的数据,可用于分页，limit 是 pageSize，skip 是第几页 *pageSize 
+
+`db.userInfo.find({$or: [{age: 22}, {age: 25}]});`  
+or 与 查询 ,相当于：select * from userInfo where age = 22 or age = 25; 
+
+`db.userInfo.findOne();`  
+findOne 查询第一条数据,相当于：`selecttop 1 * from userInfo;`  `db.userInfo.find().limit(1);`
+
+`db.userInfo.find({age: {$gte: 25}}).count();`
+查询某个结果集的记录条数   统计数量 ,相当于：select count(*) from userInfo where age >= 20; 
+
+`db.users.find().skip(10).limit(5).count(true);`
+如果要返回限制之后的记录数量，要使用 count(true)或者 count(非 0)   
+
+
+### 删 删除数据
+`db.collectionsNames.remove( { "borough": "Manhattan" } )` 
+`db.users.remove({age: 132}); `
+
+`db.restaurants.remove( { "borough": "Queens" }, { justOne: true } ) `
+By default, the remove() method removes all documents that match the remove condition. Use the justOne option to limit the remove operation to only one of the matching documents. 
+
+
+### 改 修改数据
+修改数据的过程是需要查询过程的
+
+`db.student.update({"name":"小明"},{$set:{"age":16}});` 
+查找名字叫做小明的，把年龄更改为 16 岁： 
+
+`db.student.update({"score.shuxue":70},{$set:{"age":33}}); `
+查找数学成绩是 70，把年龄更改为 33 岁： 
+
+`db.student.update({"sex":"男"},{$set:{"age":33}},{multi: true}); `
+更改所有匹配项目。
+
+`$set`的意思就是只是修改指定的属性，其他的属性不受影响。否则就是完整替换了,完整替换是非常不推荐的。`db.student.update({"name":"小明"},{"name":"大明","age":16});` 
+
+`db.users.update({name: 'Lisi'}, {$inc: {age: 50}}, false, true); `
+相当于：update users set age = age + 50 where name = ‘Lisi’;   
+
+`db.users.update({name: 'Lisi'}, {$inc: {age: 50}, $set: {name: 'hoho'}}, false, true);` 
+相当于：update users set age = age + 50, name = ‘hoho’ where name = ‘Lisi’; 
+
+
+
+## MongoDB 索引 
+索引是对数据库表中一列或多列的值进行排序的一种结构，可以让我们查询数据库变得 更快。MongoDB 的索引几乎与传统的关系型数据库一模一样，这其中也包括一些基本的查 询优化技巧。 
+
+数字 1 表示 username 键的索引按升序存储，-1 表示 age 键的索引按照降序方式存储。
+
+`db.user.getIndexes()` 
+获取当前集合的索引： 
+
+`db.user.ensureIndex({"username":1})`
+创建索引
+
+`db.user.dropIndex({"username":1})` 
+删除索引的命令
+
+`db.user.ensureIndex({"username":1, "age":-1}) `
+同样是可以创建符合索引的。
+
+继续。。。。。第四个还有一部分没有写进来。
+
+## explain 的使用 
+ explain 是非常有用的工具，会帮助你获得查询方面诸多有用的信息。只要对游标调用 该方法，就可以得到查询细节。explain 会返回一个文档，而不是游标本身。如： `db.user.find({'username':zhangsan5000}).explain()`
+ explain 会返回查询使用的索引情况，耗时和扫描文档数的统计信息。 
+
+`db.tablename.find().explain( "executionStats" ) `
+关注输出的如下数值： `explain.executionStats.executionTimeMillis` 
+
 
 
 ## mongodb 数据库的 文件备份 恢复以及 文件导入导出
