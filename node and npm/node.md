@@ -45,4 +45,42 @@ jade(后来改名为 pug ) :非常简洁的模板语法。例如 h1 div 写一�
 handlebars
 nunjecks
 
+# NodeJS linux的安装 
+二进制文件的部署安装
+https://blog.csdn.net/chenlei_525/article/details/61918174?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522158803368719724835850564%2522%252C%2522scm%2522%253A%252220140713.130102334.pc%255Fall.%2522%257D&request_id=158803368719724835850564&biz_id=0&utm_source=distribute.pc_search_result.none-task-blog-2~all~first_rank_v2~rank_v25-1
 
+1. 官网下载二进制文件 node-v0.10.26-linux-x64.tar.gz
+2. 在文件的下载地址解压文件
+3. 进入 解压后的目录bin目录下，执行ls会看到两个文件node,npm. 然后执行./node -v ，如果显示出 版本号说明我们下载的程序包是没有问题的。 依次运行如下三条命令
+    1. cd node-v0.10.26-linux-x64/bin
+    1. ls
+    1. ./node -v
+4. 因为 /home/kun/mysofltware/node-v0.10.26-linux-x64/bin这个目录是不在环境变量中的，所以只能到该目录下才能node的程序。如果在其他的目录下执行node命令的话 ，必须通过绝对路径访问才可以访问。如果要在任意目录可以访问的话，需要将node 所在的目录，添加PATH环境变量里面，或者通过软连接的形式将node和npm链接到系统默认的PATH目录下的一个。
+
+两种方式：
+1. 软连接的方式： 本质是将node的执行文件链接到已经是全局变量的文件夹下
+在终端执行echo $PATH可以获取PATH变量包含的内容，系统默认的PATH环境变量包括
+/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin: ，冒号为分隔符。所以我们可以将node和npm链接到/usr/local/bin 目录下如下执行
+ln -s /home/kun/mysofltware/node-v0.10.26-linux-x64/bin/node /usr/local/bin/node
+ln -s /home/kun/mysofltware/node-v0.10.26-linux-x64/bin/npm /usr/local/bin/npm
+> 注意：前面的目录是 下载文件的目录，后面的目录是系统默认的环境变量地址，当然这里是具体普通用户。
+1. 环境变量配置
+在node目录下执行pwd 获取node所在的目录，要把这个目录添加到PATH环境变量
+执行su 输入密码切换到root用户。
+`vi /etc/profile`
+1. 在vi 环境下 点击 i 进入插入状态，在export PATH的上一行添加如下内容 (环境变量中的内容 是以冒号分割的)
+`PATH=$PATH:/home/kun/mysofltware/node-v0.10.26-linux-x64/bin`
+编辑完成后按Esc键 然后输入 :wq 按回车保存退出。
+1. 退出vi ，执行
+`source /etc/profile` 可以是变量生效，
+1. 然后执行 echo $PATH ，看看输出内容是否包含自己添加的内容
+
+
+
+
+
+
+这个人的博客还不错：
+https://me.csdn.net/xllily_11
+从零开始nodejs系列文章：
+http://blog.fens.me/series-nodejs/
