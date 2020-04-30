@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="div1">我是一个div</div>
+  <script>
+    // var getId = document.getElementById
+    // getId('div')
+    // // 执行这段代码会发生错误，主要原因是这个时候调用对象变成了全局，而 getElementById 方法的作用发挥，应该是document 对象调用的时候才能发挥。这个时候的this的指向发生了错误（指向了全局对象windows，而不是对象document）。可以尝试修正。
+  </script>
+  <script>
+    //我们可以尝试利用 apply 把 document 当作this 传入getId 函数，帮助“修正”this：
+    document.getElementById = (function (func) {
+      return function () {
+        return func.apply(document, arguments);
+      }
+    })(document.getElementById);
+
+    var getId = document.getElementById;
+    var div = getId('div1');
+    alert(div.id); // 输出： div1
+
+    // 为什么要采用这种修正方式？ 否则无法处理 参数。这种方式本质就是固定 this 的指向。
+  </script>
+</body>
+
+</html>
+
+
+<!-- // var div = getId.apply(document, 'div');
+// alert(div.id) -->

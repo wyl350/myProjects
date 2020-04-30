@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="div1">我是一个div</div>
+</body>
+<script>
+
+  window.id = 'window';
+
+  // document.getElementById('div1').onclick = function () {
+  //   alert(this.id); // 输出：'div1'
+  //   var callback = function () {
+  //     alert(this.id); // 输出：'window'
+  //   }
+  //   callback();
+  // };
+
+
+  document.getElementById('div1').onclick = function () {
+    var that = this; // 保存div 的引用
+    var callback = function () {
+      alert(that.id); // 输出：'div1'
+    }
+    callback();
+  };
+
+</script>
+
+</html>

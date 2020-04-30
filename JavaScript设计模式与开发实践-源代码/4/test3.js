@@ -19,4 +19,6 @@ var CreateDiv = (function () {
 var a = new CreateDiv('sven1');
 var b = new CreateDiv('sven2');
 alert(a === b); // true
+// test3 使用的是 构造函数同级封装 闭包变量的方式，作单例创建的标识。
+
 

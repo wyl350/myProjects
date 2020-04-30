@@ -22,6 +22,7 @@
     //   loginLayer.style.display = 'block';
     // };
     // // 这个模式的缺点就是已进入页面就创建了这个登录窗口，没有实现惰性创建单例的目的。
+    // // 具体采用闭包的方式，直接创建对象，占用内存，进入页面就有开销。
   </script>
 
   <script>
@@ -37,6 +38,7 @@
     //   loginLayer.style.display = 'block';
     // };
     // // 实现了惰性创建对象的目的，即 进入页面不会直接创建对象，点击按钮之后，才会创建对象，但是失去了单例的效果，多次点击就会创建多个对象。
+    // // 这种方式不适用闭包，就没有开销，但是无法创建单例。
   </script>
 
   <script>
@@ -81,8 +83,59 @@
     //   var loginLayer = createSingleLoginLayer();
     //   loginLayer.style.display = 'block';
     // };
-
+    // // 这种方式，点击按钮才会发生闭包。
   </script>
+  <script>
+    // var getSingle = function (fn) {
+    //   var result;
+    //   return function () {
+    //     return result || (result = fn.apply(this, arguments));
+    //   }
+    // };
+    // var createSingleIframe = getSingle(function () {
+    //   var iframe = document.createElement('iframe');
+    //   document.body.appendChild(iframe);
+    //   return iframe;
+    // });
+    // //下面我们再试试创建唯一的iframe 用于动态加载第三方页面：
+    // document.getElementById('loginBtn').onclick = function () {
+    //   var loginLayer = createSingleIframe();
+    //   loginLayer.src = 'http://baidu.com';
+    // };
+  </script>
+
+
+
+
+  <!-- <div>1</div>
+  <div>2</div>
+  <div>3</div>
+  <div>4</div>
+  <div>5</div>
+  <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
+  <script>
+    var bindEvent = function () {
+      $('div').one('click', function () {
+        alert('click');
+      });
+    };
+    var render = function () {
+      console.log('开始渲染列表');
+      bindEvent();
+    };
+    render();
+
+    render();
+    render();
+  </script> -->
+
+
+  <div>1</div>
+  <div>2</div>
+  <div>3</div>
+  <div>4</div>
+  <div>5</div>
+  <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
   <script>
     var getSingle = function (fn) {
       var result;
@@ -90,16 +143,19 @@
         return result || (result = fn.apply(this, arguments));
       }
     };
-    var createSingleIframe = getSingle(function () {
-      var iframe = document.createElement('iframe');
-      document.body.appendChild(iframe);
-      return iframe;
+    var bindEvent = getSingle(function () {
+      document.getElementById('div1').onclick = function () {
+        alert('click');
+      }
+      return true;
     });
-    //下面我们再试试创建唯一的iframe 用于动态加载第三方页面：
-    document.getElementById('loginBtn').onclick = function () {
-      var loginLayer = createSingleIframe();
-      loginLayer.src = 'http://baidu.com';
+    var render = function () {
+      console.log('开始渲染列表');
+      bindEvent();
     };
+    render();
+    render();
+    render();
   </script>
 </body>
 
