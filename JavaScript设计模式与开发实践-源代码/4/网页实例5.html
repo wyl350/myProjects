@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <!-- <input type="button" id="loginBtn"></input> -->
+  <script>
+    var createLoginLayer = function () {
+      var div = document.createElement('div');
+      div.innerHTML = '我是登录浮窗';
+      div.style.display = 'none';
+      document.body.appendChild(div);
+      return div;
+    };
+    var createSingleIframe = function (src) {
+      var iframe = document.createElement('iframe');
+      iframe.src = src;
+      document.body.appendChild(iframe);
+      return iframe;
+    }
+    var getSingle = (function () {
+      var instance;
+      return function (fn, str) {
+        if (!instance) {
+          instance = new fn(str);
+        }
+        return instance;
+      }
+    })();
+    // var a = new getSingle(createLoginLayer, 'sven1');
+    // var b = new getSingle(createLoginLayer, 'sven2');
+    var a = new getSingle(createSingleIframe, 'http://baidu.com');
+    var b = new getSingle(createSingleIframe, 'http://baidu.com');
+    alert(a === b);
+  </script>
+</body>
+
+</html>

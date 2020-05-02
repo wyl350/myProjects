@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <input type="button" id="loginBtn"></input>
+  <script>
+    var createLoginLayer = function () {
+      var div = document.createElement('div');
+      div.innerHTML = '我是登录浮窗';
+      div.style.display = 'none';
+      document.body.appendChild(div);
+      return div;
+    };
+    var createSingleIframe = function (src) {
+      var iframe = document.createElement('iframe');
+      iframe.src = src;
+      document.body.appendChild(iframe);
+      return iframe;
+    }
+    var getSingle = (function () {
+      var instance;
+      return function (str) {
+        if (!instance) {
+          // instance = new createLoginLayer(str);
+          instance = new createSingleIframe(str);
+          // 这一部分可以使用高阶函数来改进一下
+        }
+        return instance;
+      }
+    })();
+    var a = new getSingle('http://baidu.com');
+    var b = new getSingle('http://baidu.com');
+    alert(a === b);
+  </script>
+</body>
+
+</html>
