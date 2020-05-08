@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="msg"></div>
+  <!-- <script>
+    document.querySelector('#msg').innerHTML = '<h1>Hello World</h1>'
+  </script> -->
+  <script>
+    function printMessage(elementId, format, message) {
+      document.querySelector(`#${elementId}`).innerHTML = `<${format}>${message}</${format}>`
+    }
+    printMessage('msg', 'h1', 'Hello World')
+
+  </script>
+</body>
+
+</html>
