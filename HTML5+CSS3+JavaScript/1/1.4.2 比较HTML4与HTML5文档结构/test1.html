@@ -1,0 +1,39 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>HTML4文档布局</title>
+<style type="text/css">
+#header, #aside, #article, #footer {
+    text-align: center;
+    line-height: 100px;
+    width: 100%;
+    font-weight: bold;
+}
+#header { background: rgba(255,0,0,0.4); }
+#aside {
+    float: left;
+    width: 30%;
+    line-height: 200px;
+    background: rgba(0,255,255,0.3);
+}
+#article {
+    float: right;
+    width: 70%;
+    line-height: 200px;
+    background: rgba(0,0,255,0.3);
+}
+#footer {
+    clear: both;
+    line-height: 60px;
+    background: rgba(0,255,0,0.3);
+}
+</style>
+</head>
+<body>
+<div id="header">[标题栏]</div>
+<div id="aside">[侧边栏]</div>
+<div id="article">[正文内容]</div>
+<div id="footer">[页脚栏]</div>
+</body>
+</html>

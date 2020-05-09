@@ -1,0 +1,68 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title></title>
+<style type="text/css">
+table {
+    width: 100%;
+    font-size: 14px;
+    border-collapse: collapse;
+    border: 1px solid #cad9ea;
+}
+th {
+    background-image: url(images/th_bg1.gif);
+    background-repeat: repeat-x;
+    height: 30px;
+    vertical-align:middle;
+    border: 1px solid #cad9ea;
+    padding: 0 1em 0;
+}
+td {
+    height: 20px;
+    border: 1px solid #cad9ea;
+    padding: 6px 1em;
+}
+tr:nth-child(even) { background-color: #f5fafe; }
+.w4 { width: 4em; }
+</style>
+</head>
+<body>
+<table>
+    <tr>
+        <th class="w4">与文本换行相关的属性</th>
+        <th>使用说明</th>
+    </tr>
+    <tr>
+        <td>line-break</td>
+        <td>用于指定如何（或是否）断行。除了Firefox，其它浏览器都支持。取值包括：<br>
+            auto，使用缺省的断行规则分解文本；<br>
+            loose，使用最松散的断行规则分解文本，一般用于短行的情况，如报纸；<br>
+            normal，使用最一般的断行规则分解文本；<br>
+            strict，使用最严格的断行原则分解文本。</td>
+    </tr>
+    <tr>
+        <td>word-wrap</td>
+        <td>允许长单词或URL地址换行到下一行。所有浏览器都支持。取值包括：<br>
+            normal，只在允许的断字点换行（浏览器保持默认处理）；<br>
+            break-word，在长单词或 URL 地址内部进行换行。</td>
+    </tr>
+    <tr>
+        <td>word-break</td>
+        <td>定义文本自动换行。Chrome和Safari浏览器支持不够友好。取值包括：<br>
+            normal：为默认值，允许在字内换行;<br>
+            keep-all,对于中文、韩文、日文，不允许字断开；<br>
+            break-all，与normal相同，允许非亚洲语言文本行的任意字内断开。 </td>
+    </tr>
+    <tr>
+        <td>white-space</td>
+        <td>设置如何处理元素中的空格。所有浏览器都支持。取值包括：<br>
+            normal，默认处理方式；<br>
+            pre，显示预先格式化的文本，当文字超出边界时不换行；<br>
+            nowrap， 强制在同一行内显示所有文本，合并文本间的多余空白，直到文本结束或者遭遇br对象； <br>
+            pre-wrap，显示预先格式化的文本，不合并文字间的空白距离，当文字碰到边界时发生换行；<br>
+            pre-line， 保持文本的换行，不保留文字间的空白距离，当文字碰到边界时发生换行。</td>
+    </tr>
+</table>
+</body>
+</html>

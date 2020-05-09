@@ -1,0 +1,20 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<style type="text/css">
+img { width:300px; margin:6px;}
+.r1 {
+    -moz-border-radius:8px;
+    -webkit-border-radius:8px;
+    border-radius:8px;
+    -moz-box-shadow:8px 8px 14px #06C; /*兼容Gecko引擎*/
+    -webkit-box-shadow:8px 8px 14px #06C;/*兼容Webkit引擎*/
+    box-shadow:8px 8px 14px #06C;/*标准用法*/}
+</style>
+</head>
+<body>
+<img src="images/1.png" title="无阴影图像" /> 
+<img class="r1" src="images/1.png" title="阴影图像" />
+</body>
+</html>

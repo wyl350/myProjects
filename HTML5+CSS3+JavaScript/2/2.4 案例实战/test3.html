@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" >
+<title>我的小树林</title>
+<!--[if lt IE 9]>
+  <script>
+    document.createElement("article"); 
+    document.createElement("section"); 
+    document.createElement("nav"    );
+    document.createElement("aside"  );
+    document.createElement("main"   );                  
+    document.createElement("header" );
+     document.createElement("hgroup" );   
+    document.createElement("footer" );
+  </script>
+<![endif]-->
+<style type="text/css">
+body {
+    background-color: #000;
+    font-family: Geneva, Arial, Helvetica, sans-serif;
+    margin: 0px auto;
+    max-width: 1024px;
+    border: solid 1px #fff;
+}
+article, section, nav, aside, main, header, hgroup, footer { display: block; }
+h1 {
+    font-size: 34px;
+    margin: 0px;
+}
+h2 {
+    font-size: 24px;
+    margin: 0px;
+    text-align: center;
+    color: #F47D31;
+}
+h3 {
+    font-size: 18px;
+    margin: 0px;
+    text-align: center;
+    color: #F47D31;
+}
+ul, ol {
+    list-style-type: none;
+    padding: 0;
+    margin: 1em 0 1em 2em;
+}
+
+
+/*超链接 */
+a {
+    text-decoration: none;
+    color: #F47D31;
+}
+a:hover {
+    text-decoration: none;
+    color: #000;
+}
+footer a { color: #eee; }
+footer a:hover { color: #000; }
+
+/*标题栏 */
+header {
+    background-color: #F47D31;
+    color: #FFF;
+}
+body > header h1 {
+    margin-left: 40px;
+    line-height: 2em;
+    padding-top: 4px;
+}
+body > header h2 {
+    color: #eee;
+    font-size: 14px;
+    text-align: left;
+    margin-left: 40px;
+    padding-bottom: 16px;
+}
+header h4 {
+    color: #F47D31;
+    background-color: #fff;
+    -webkit-box-shadow: 2px 2px 20px #888;
+    -webkit-transform: rotate(45deg);
+    -moz-box-shadow: 2px 2px 20px #888;
+    -moz-transform: rotate(45deg);
+    box-shadow: 2px 2px 20px #888;
+    transform: rotate(45deg);
+    position: fixed;
+    padding: 12px 200px;
+    top: 40px;
+    right: -240px;
+    text-align: center;
+    text-shadow: 1px 1px #eee;
+    width: 260px;
+}
+/*导航栏 */
+nav {
+    width: 15%;
+    float: left;
+    background: #fff;
+    margin-top: 1px;
+}
+nav a:link, nav a:visited {
+    display: block;
+    border-bottom: 1px solid #ccc;
+    padding: 12px;
+    text-decoration: none;
+    font-weight: bold;
+}
+nav a:hover {
+    color: white;
+    background-color: #F47D31;
+}
+nav h3 {
+    margin: 15px;
+    color: white;
+    display: none;
+}
+/*主要内容区域 */
+main { background-color: #888; }
+
+/*文章区块 */
+section {
+    width: 60%;
+    float: left;
+}
+section>h2{display:none;}
+/*文章栏 */
+article {
+    background-color: #eee;
+    margin: 10px;
+    padding: 10px;
+    text-indent: 2em;
+    line-height: 1.8em;
+    -webkit-border-radius: 8px;
+    -webkit-box-shadow: 2px 2px 20px #888;
+    -webkit-transform: rotate(2deg);
+    -moz-border-radius: 8px;
+    -moz-box-shadow: 2px 2px 20px #888;
+    -moz-transform: rotate(2deg);
+    border-radius: 8px;
+    box-shadow: 2px 2px 20px #888;
+    transform: rotate(2deg);
+}
+article header {
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    border-radius: 8px;
+    padding: 5px;
+}
+article h1 { 
+    font-size: 22px;
+    line-height:2em;
+
+}
+article footer {
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    border-radius: 8px;
+    padding: 5px;
+    text-align: left;
+}
+article footer h2, article footer p {
+    display: inline;
+    padding: 6px;
+    margin-left:-12px;
+    color:#fff;
+    font-size:16px;
+}
+article footer h2:after{
+    content:":";
+}
+
+/*辅助栏 */
+aside {
+    width: 25%;
+    float: left;
+    background: #fff;
+}
+aside h3 {
+    margin: 16px 12px 0 12px;
+    padding: 0 0 6px 0;
+    color: #777;
+    border-bottom: solid 1px #ccc;
+}
+/*有序列表排序符号 */
+aside ol  li {
+    background: url(images/top10-bullet.png) no-repeat 2px 10px;
+    padding: 1px 0px 0px 28px;
+    line-height: 30px;
+    height:30px;
+    overflow:hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis; 
+}
+aside ol  li:first-child {
+    background-position:2px 10px;
+}
+aside ol  li:nth-child(2) {
+    background-position:2px -31px;
+}
+aside ol  li:nth-child(3) {
+    background-position:2px -72px;
+}
+aside ol  li:nth-child(4) {
+    background-position:2px -113px;
+}
+aside ol  li:nth-child(5) {
+    background-position:2px -154px;
+}
+aside ol  li:nth-child(6) {
+    background-position:2px -195px;
+}
+aside ol  li:nth-child(7) {
+    background-position:2px -236px;
+}
+
+
+/*页脚栏 */
+footer {
+    clear: both;
+    background-color: #F47D31;
+    color: #FFFFFF;
+    text-align: center;
+    padding: 6px;
+}
+main > footer h2 {
+    display: none;
+}
+</style>
+</head>
+<body>
+<header>
+    <h1>我的小树林</h1>
+    <h2>褪一分浮躁，守一分宁静，握一份真诚，携一份善良，做个简单的程序员。。。</h2>
+    <h4>专注于HTML5、CSS3、JavaScript，欢迎各位道友前来论道</h4>
+</header>
+<main>
+    <nav>
+        <h3>导航</h3>
+        <a href="#">博客园</a> <a href="#">首页</a> <a href="#">新随笔</a> <a href="#">联系</a> <a href="#">管理</a> 
+    </nav>
+    <section>
+        <h2>文章</h2>
+        <article>
+            <header>
+                <h1>戏说HTML5</h1>
+            </header>
+            <p>如果有非技术人员问你，HTML5是什么，你会怎么回答？</p>
+            <p>新的HTML规范。。。</p>
+            <p>给浏览器提供了牛逼能力，干以前不能干的事。。。（确切地说应该是给浏览器规定了许多新的接口标准，要求浏览器实现牛逼的功能。。。 这里感谢红枫一叶）</p>
+            <p>给浏览器暴露了许多新的接口。。。</p>
+            <p>加了很多新的效果。。。</p>
+            <p>问的人其实并不明白他想问的真正问题，回答的人貌似明白，但又好像少了点什么。牛逼的能力、新的接口、炫酷的效果，首先回答的人自己就是晕晕乎乎。什么是HTML、什么是CSS、什么是DOM、什么是JavaScript，大部分的前端开发每天都在用这些，但很少会有人去思考一下他们之间的关系。</p>
+            <p>。。。。。。</p>
+            <p>当交互性不能在满足人们需求时，web迎来了新的需求：webapp。要迎合新的需求，首先要改变的就是HTML规范，这个时候已有的HTML4.0，已经无法满足人们日益增长的需求，所以HTML5迎着历史的需求，经过八年的艰苦努力，终于在2014年正式定稿！HTML5肯定是要加入新标签，然对于传统HTML而言，HTML5算是一个叛逆。所有之前的版本对于JavaScript接口的描述都不过三言两语，主要篇幅都用于定义标记，与JavaScript相关内容一概交由DOM规范去定义。而HTML5规范，则围绕着如何使用新增标记定义了大量JavaScript API（所以其中有一些API是与DOM重叠，定义了浏览器应该支持的DOM扩展，由此可以看到HTML5也必定不是HTML的最终版。 </p>
+            <footer>
+                <h2>标签</h2>
+                <p><a href="#">生活感悟</a></p>
+            </footer>
+        </article>
+    </section>
+    <aside>
+        <h3>常用链接</h3>
+        <ul>
+            <li><a href="#">我的随笔</a></li>
+            <li><a href="#">我的评论</a></li>
+            <li><a href="#">我的参与</a></li>
+            <li><a href="#">最新评论</a></li>
+            <li><a href="#">我的标签</a></li>
+        </ul>
+        <h3>最新随笔</h3>
+        <ol>
+            <li><a href="#">Three.js使用局部纹理更新</a></li>
+            <li><a href="#">webgl自学笔记——矩阵变换</a></li>
+            <li><a href="#">webgl开发第一道坎——矩阵与坐标变换</a></li>
+            <li><a href="#">webgl自学笔记——光照</a></li>
+            <li><a href="#">webgl自学笔记——几何图形</a></li>
+        </ol>
+        <h3>我的标签</h3>
+        <ul>
+            <li><a href="#">javascript(61)</a></li>
+            <li><a href="#">css(10)</a></li>
+            <li><a href="#">webgl(6)</a></li>
+            <li><a href="#">ajax(3)</a></li>
+            <li><a href="#">更多</a></li>
+        </ul>
+        <h3>随笔档案(114)</h3>
+        <ul>
+            <li><a href="#">2017年8月 (2)</a></li>
+            <li><a href="#">2017年7月 (4)</a></li>
+            <li><a href="#">2017年5月 (1)</a></li>
+            <li><a href="#">2017年3月 (1)</a></li>
+            <li><a href="#">2017年1月 (1)</a></li>
+        </ul>
+        <h3>积分与排名</h3>
+        <ul>
+            <li>积分 - 194821</li>
+            <li>排名 - 1133 </li>
+        </ul>
+    </aside>
+    <footer>
+        <h2>版权信息</h2>
+        <p><a href="#">关于博客园</a> <a href="#">联系我们</a></p>
+        <p>©2004-2019博客园保留所有权利，沪ICP备09004260号</p>
+    </footer>
+</main>
+<noscript>
+   <h1>警告</h1>
+   <p>因为你的浏览器不支持HTML5，一些元素是模拟使用JavaScript。不幸的是，您的浏览器已禁用脚本。请启用它以显示此页。</p>
+</noscript>
+</body>
+</html>
