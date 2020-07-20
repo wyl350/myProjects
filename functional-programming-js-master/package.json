@@ -8,7 +8,7 @@
     "blanket": "1.2.3",
     "jest": "~20.0.4",
     "jscheck": "0.2.0",
-    "lodash": "4.14.2",
+    "lodash": "4.17.19",
     "performance-now": "^2.0.0",
     "qunit": "1.0.0",
     "ramda": "0.22.0",
