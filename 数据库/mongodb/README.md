@@ -46,7 +46,9 @@ systemLog:
 storage:
     dbPath: c:\data\db
 ```
-这里应该还有一步指定配置文件的一步。
+这里应该还有一步指定配置文件的一步。应该是下面的命令：
+mongod --config ./conf/mongodb.conf
+
 ### mongodb 启动的方式
 在 windows 系统中， mongodb 启动有两种方式：
 1. 命令行下运行 MongoDB 服务器
@@ -97,7 +99,7 @@ storage:
 
 ## mongodb 的 文档集合操作
 数据库中不能直接插入数据，只能往集合(collections)中插入数据。不需要专门创建集合，只 需要写点语法插入数据就会创建集合（insert 语句）。 
-例如：`db.student.insert({“name”:”xiaoming”}); `
+例如：`db.student.insert({"name":"xiaoming"}); `
 db.student  系统发现 student 是一个陌生的集合名字，所以就自动创建了集合。 
 
 ### 显示当前数据库所有文档集合

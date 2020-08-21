@@ -8,5 +8,7 @@ https://www.jianshu.com/p/9cfc5cdb0aeb
     > 一个在前端本地运行，可以存储json数据的server。
 1. 全局使用
 $ npm install -g json-server
-1. 
+1. 使用方法
+$ json-server --watch 文件地址
 
+这就开启了一个数据接口服务
