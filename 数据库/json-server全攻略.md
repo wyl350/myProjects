@@ -12,3 +12,15 @@ $ npm install -g json-server
 $ json-server --watch 文件地址
 
 这就开启了一个数据接口服务
+http://www.127.0.0.1:3000/
+
+http://www.127.0.0.1:3000/users
+http://www.127.0.0.1:3000/jobs
+
+http://www.127.0.0.1:3000/users/1
+http://www.127.0.0.1:3000/users/2
+http://www.127.0.0.1:3000/users/3
+
+
+把文件夹启动为http服务
+hs -c-1 -0 

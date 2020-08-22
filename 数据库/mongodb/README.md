@@ -265,10 +265,10 @@ wps 这其实是word形式导出
 `mongoexport -h localhost:27017 -d 数据库名 -c 集合名 -o 导出路径/***.wps`
 excel 形式导出
 `mongoexport -h localhost:27017 -d 数据库名 -c 集合名 -o 导出路径/***.xls`
-### 文件恢复
+### 文件恢复 也叫作文件导入 
 `mongoimport -h localhost:27017 -d user -c 数据库名 -o 路径`
 `mongoimport -h localhost:27017 -d user -c 数据库名 e://acat/c2.txt`
-
+在连接好mongo的时候： `mongoimport -d 数据库名称 -c 集合名 --file 要导入的数据文件全称`
 ## mongofiles 执行文件
 > 主要用来在数据库中存储二进制大文件。可以统一用数据库处理数据，而无需借助外部的文件系统。另外，还可以利用MongoDB的复制或者是分片机制，其故障恢复和可扩展性较好。使用这种方式存储，可以避免使用文件系统的某些限制，例如平台的差异性导致存储需要做特殊处理（Linux在同一目录下的文件数限制），还可以避免文件碎片（MongoDB分配空间以2GB作为单位），这样数据存放相对较集中，即使有文件碎片，相对来说，其程度也要比操作系统的碎片程度低得多。
 
