@@ -13,6 +13,9 @@ require('./middlewares/index')
 // 路由
 require('./routes/index')
 
+// 错误处理
+require('./errhandle/index')
+
 // 端口
 app.listen(3000, function () {
   console.log('网站服务器启动成功')
