@@ -38,7 +38,7 @@ mongodb 数据库常用的两个执行文件：
 #### 创建配置文件
 nongodb 的一个默认规则：nongodb 默认使用执行 mongod 命令所处盘符根目录下的 /data/db 作为自己的数据存储目录,所以第一次执行该命令之前，应当先自己手动新建一个 /data/db 。当然也是可以手动指定数据存储目录路径的。
 1. 指定方法：`mongod --dbpath=数据存储目录路径`
-1. 创建一个配置文件。该文件必须设置 systemLog.path 参数，包括一些附加的配置选项更好。例如，创建一个配置文件位于 C:\mongodb\mongod.cfg，其中指定 systemLog.path 和 storage.dbPath。具体配置内容如下：
+1. 创建一个配置文件。该文件必须设置 systemLog.path 参数，包括一些附加的配置选项更好。例如，创建一个配置文件位于 C:\mongodb\mongod.cfg ，其中指定 systemLog.path 和 storage.dbPath。具体配置内容如下：
 ```shell
 systemLog:
     destination: file
