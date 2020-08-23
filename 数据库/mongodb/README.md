@@ -25,8 +25,8 @@ mongoosejs 翻译版本教程： http://www.mongoosejs.net/docs/index.html
 1. zip 版本的，删除掉环境变量，即可。
 ## mongodb 的 启动
 mongodb 数据库常用的两个执行文件：
-1. 启动执行文件：mongod.exe
-1. 连接执行文件：mongo.exe
+1. 启动执行文件： mongod.exe
+1. 连接执行文件： mongo.exe
 > mongodb 执行启动服务，必须配置数据存储目录。所以第一次执行该服务，应当手动设置，当然也可以新建配置文件。如果第一次不配置的话，点击启动执行文件,不会启动服务，只会一闪而过。
 ### 配置数据存储目录
 一共有两种方式：
