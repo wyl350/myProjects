@@ -1,5 +1,5 @@
 const Student = require('../model/index')
-const dateformat = require('dataformat')
+const dateformat = require('dateformat')
 
 var student = express.Router()
   .get('/', (req, res) => {
@@ -10,17 +10,18 @@ var student = express.Router()
   })
 
 
-  // .get('/list', (req, res) => {
-  //   Student.find().then(result => {
-  //     res.render('list', {
-  //       students: result,
-  //     })
-  //   })
-  // })
+  .get('/list', (req, res) => {
+    Student.find().then(result => {
+      res.render('list', {
+        students: result,
+        dateformat: dateformat,
+      })
+    })
+  })
 
   .post('/add', (req, res) => {
     Student.create(req.body).then(result => {
-      res.send('/list')
+      res.redirect('/list')
     })
   })
 app.use(student)
