@@ -35,7 +35,7 @@ module.exports = list
   .get('/modify', (req, res) => {
     var query = req.query
     User.findOne({ _id: query.id }).then(result => {
-      res.render('add', {
+      res.render('modify', {
         user: result,
         hobbies: ["足球", "篮球", "橄榄球", "敲代码", "抽烟", "喝酒", "烫头"],
         fn: (value1, value2) => {
