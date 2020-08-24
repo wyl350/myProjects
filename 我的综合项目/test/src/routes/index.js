@@ -12,7 +12,9 @@ app.set('view engine', 'html');
 require('./list')
 
 // // 全局配置公共数据
-// template.defaults.imports.a = []
+// template.defaults.imports.dataFormate = dataFormate
+// 以上这个句子显然是可以导入模板的函数甚至属性的。
+
 // // 设置模板默认后缀 
 // template.defaults.extname
 // // 配置模板根目录的另一种方法

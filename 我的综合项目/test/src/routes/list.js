@@ -1,4 +1,11 @@
-const User =  require('../model/index')
+const User = require('../model/index')
+
+// 这个方法是可以设置 公共的模板数据的
+// 有一个dateFormat 模块是可以随意处理时间的
+
+app.locals.w = {
+  fsefs: 1,
+}
 
 var list = express.Router()
   .get('/', (req, res) => {
