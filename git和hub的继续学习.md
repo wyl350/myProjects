@@ -163,6 +163,9 @@ git --version  用来检验是否已经安装git程序
 
 查阅了一下资料，发现可以在pull命令后紧接着使用--allow-unrelated-history选项来解决问题（该选项可以合并两个独立启动仓库的历史）
 `git pull origin master --allow-unrelated-histories`
+-a  参数是可以针对删除的文件存进记忆的。
+git push 报错 Changes not staged for commit:
+`git commit -am "提交说明"` 这句代码就能完美的解决这个问题。
 
 补充分支：
 
