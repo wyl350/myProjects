@@ -161,6 +161,9 @@ git --version  用来检验是否已经安装git程序
 
 - `git branch -d 分支名称` 删除分支（分支被合并后才允许删除）（-D 强制删除）
 
+查阅了一下资料，发现可以在pull命令后紧接着使用--allow-unrelated-history选项来解决问题（该选项可以合并两个独立启动仓库的历史）
+`git pull origin master --allow-unrelated-histories`
+
 补充分支：
 
 - git log --graph --pretty=oneline        分支图
