@@ -1,12 +1,11 @@
-const express = require('express')
-const app = express()
-const path = require('path')
-// npm install express body-parser art-template express-art-template
+global.express = require('express')
+global.app = express()
+global.path = require('path')
+global.bodyParser = require('body-parser')
+global.mongoose = require('mongoose');
 
-exports.app = app
-exports.express = express
-exports.path = path
-
+// 配置数据接口
+require('./model/index')
 // 配置中间件
 require('./middlewares/index')
 

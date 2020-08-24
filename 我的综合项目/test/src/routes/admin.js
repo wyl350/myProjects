@@ -1,6 +1,7 @@
-const { admin } = require('./index')
+let { express, app } = require('./index')
 
-module.exports = admin
-	.get('/index', (req, res) => {
-		res.render('admin')
-	})
+module.exports = admin = express.Router()
+  .get('/index', (req, res) => {
+    res.send('admin')
+  })
+app.use('/admin',admin)

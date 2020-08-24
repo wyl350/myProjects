@@ -1,7 +1,7 @@
-const { home } = require('./index')
+let { express, app } = require('./index')
 
-module.exports = home
+module.exports = home = express.Router()
   .get('/index', (req, res) => {
-    // res.render('index')
     res.send('index')
   })
+app.use('/home',home)

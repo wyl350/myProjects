@@ -1,7 +1,6 @@
-const { list } = require('./index')
-const User = require('../model/user')
+const User =  require('../model/index')
 
-module.exports = list
+var list = express.Router()
   .get('/', (req, res) => {
     res.redirect('/list')
   })
@@ -64,3 +63,7 @@ module.exports = list
       res.redirect('/list')
     })
   })
+
+
+app.use(list)
+
