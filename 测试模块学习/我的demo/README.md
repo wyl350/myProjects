@@ -1,3 +1,6 @@
+学习测试，要先从这里开始
+
+
 这个人的教程比较容易快速上手： https://www.cnblogs.com/sampapa/p/6963936.html
 
 阮一峰的教程比较全面： http://www.ruanyifeng.com/blog/2015/12/a-mocha-tutorial-of-examples.html
