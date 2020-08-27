@@ -7,7 +7,7 @@ https://github.com/ruanyf?tab=repositories
 阮一峰的网道首页,有阮一峰的几本书： https://wangdoc.com/
 es6教程源码： https://github.com/ruanyf/es6tutorial.git
 
-## 
+## 科学上网
 
 科学上网方法
 <li> https://github.com/Alvin9999/new-pac/wiki

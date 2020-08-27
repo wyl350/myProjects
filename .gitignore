@@ -1,6 +1,18 @@
-node_modules
+﻿node_modules
 build/
 npm-debug.log
+.project
+*.pptx
+*.ppt
+*.avi
+*.rar
+*.zip
+
+
+
+
+
+
 # *.pdf
 # package-lock.json
 
