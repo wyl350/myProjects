@@ -1,0 +1,64 @@
+1.1 创建字典
+VBA中创建字典有两种方法：
+
+引用声明
+在VBE菜单中，选择“工具－引用”，在弹出的对话框中选择中边的“浏览”，此时会打开Windows系统的驱动目录(C:\Windows\System32)，然后找到scrrun.dll，确定确定返回就行了。
+添加引用后，就可以像定义其它变量一样声明使用字典了。
+
+Dim d As New Dictionary
+直接创建
+我目前基本上都使用的这种方法。可如下定义：
+
+Dim d As Object 
+Set d = CreateObject("Scripting.Dictionary")
+1.2 字典的方法
+字典有6个方法，分别是Add、Exists、Keys、Items、Remove、RemoveAll。使用方法如下：
+
+1.2.1 Add
+用于添加内容到字典中。
+
+d.Add key, item
+第一个参数为键，第二个参数为键对应的值
+
+1.2.2 Exists
+用于判断指定的关键词是否存在于字典（的键）中。
+
+d.Exists(key)
+如果存在，返回True，否则返回False。通常会在向字典中添加条目的时候使用，即先判断字典中是否已存在这个记录，如果不存在则新增，否则进行其它的操作。
+
+1.2.3 Keys
+获取字典所有的键，返回类型是数组。
+
+d.Keys()
+1.2.4 Items
+获取字典所有的值，返回类型是数组。
+
+d.Items()
+1.2.5 Remove
+从字典中移除一个条目，是通过键来指定的。
+
+d.Remove(key)
+如果指定的键不存在，会发生错误。
+
+1.2.6 RemoveAll
+清空字典。
+
+1.3 字典的属性
+字典有4个属性：Count、Key、Item、ConpareMode
+
+1.3.1 Count
+用于统计字典中键－值对的数量。也可以简单理解为统计字典中键的个数。
+
+d.Count
+1.3.2 Key
+用于更改字典中已有的键。如：
+
+d.Key("apple") = "Orange" 
+如果指定的键不存在，则会产生错误。
+
+1.3.3 Item
+用于写入或读取字典中指定键的值，如果指定的键不存在，则会新增。如：
+
+'读取 Debug.Print d.Item("apple") '写入 d.Item("apple") = 10
+1.3.4 CompareMode
+CompareMode用于设置或者读取字典对象中比较字符串时的比较模式。

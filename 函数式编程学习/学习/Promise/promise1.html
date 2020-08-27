@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script type="text/javascript">
+
+
+
+  class Functor {
+    constructor(executor) {
+      let _this = this;
+      this.value = undefined;
+      this.callback = null;
+      function resolve(value) {
+        _this.value = value;
+        _this.callback()
+      }
+      executor(resolve)
+    }
+
+    map(fn) {
+      let self = this;
+      return new Functor(
+        (resolve) => {
+          self.callback = function () {
+            let data = fn(self.value)
+            console.log(data)
+            resolve(data)
+          }
+        }
+      )
+    }
+  }
+
+  function executor(resolve) {
+    setTimeout(() => {
+      resolve(100)
+    }, 500)
+  }
+
+  var a = new Functor(executor);
+  var b = a.map(add)
+  // .map(add).map(minus).map(minus).map(minus)
+
+
+
+  // var c = b.map(fn1)
+  // var d = c.map(fn1)
+  // var e = d.map(fn1)
+
+  function add(data) {
+    return data + 1
+  }
+
+  function minus(data) {
+    return data - 10
+  }
+
+</script>
+
+</html>

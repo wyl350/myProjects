@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script type="text/javascript">
+
+
+
+  class MyPromise {
+    constructor(executor) {
+      let _this = this;
+      this.value = undefined;
+      this.callbacks = [];
+      function resolve(value) {
+        _this.value = value;
+        _this.callbacks.forEach(item => item())
+      }
+      executor(resolve)
+    }
+
+    then(fn) {
+      return new MyPromise((resolve) => {
+        this.callbacks.push(() => {
+          let data = fn(this.value)
+          console.log(data)
+          resolve(data)
+        })
+      })
+    }
+  }
+
+  function executor(resolve) {
+    setTimeout(() => {
+      resolve(100)
+    }, 500)
+  }
+
+  var a = new MyPromise(executor);
+  var b = a.then(add).then(minus);
+  var c = a.then(minus);
+
+  function add(data) {
+    return data + 1
+  }
+
+  function minus(data) {
+    return data - 10
+  }
+
+</script>
+
+</html>

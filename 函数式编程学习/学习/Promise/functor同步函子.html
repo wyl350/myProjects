@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script type="text/javascript">
+
+  class Functor {
+    constructor(value) {
+      this.value = value;
+    }
+    map(fn) {
+      return Functor.of(fn(this.value))
+    }
+  }
+  Functor.of = function (val) {
+    return new Functor(val);
+  }
+
+  console.log(
+    Functor.of(100).map(add1).map(add1).map(minus10)
+  );
+
+
+  // var  a = Functor.of(100);
+  // var  b = a.map(add1);
+  // var  c = b.map(add1);
+  // var  d = c.map(minus10);
+  function add1(data) {
+    return data + 1
+  }
+
+  function minus10(data) {
+    return data - 10
+  }
+
+
+
+</script>
+
+</html>

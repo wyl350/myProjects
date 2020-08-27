@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+
+  <script>
+    // {
+    //   class Category {
+    //     constructor(val) {
+    //       this.val = val
+    //       this.val2 = 1
+    //     }
+
+    //     addOne(x) {
+    //       return x + 1;
+    //     }
+    //     addOne2() {
+    //       return this.val + 1;
+    //     }
+    //     addOne3() {
+    //       return this.val2 + 1;
+    //     }
+    //   }
+    //   console.log(
+    //     new Category(1).addOne2(),
+    //     new Category(1).addOne2(),
+    //     new Category(1).addOne3(),
+    //     new Category(1).addOne3(),
+    //   );
+
+    // }
+
+    {
+
+      // function f(x) {
+      //   return x + 1
+      // }
+
+      // function g(x) {
+      //   return x * 2
+      // }
+
+      // const compose = function (f, g) {
+      //   return function (x) {
+      //     return f(g(x));
+      //   };
+      // }
+      // console.log(compose(f, g)(1));
+
+
+      // // 柯里化之前
+      // function add(x, y) {
+      //   return x + y;
+      // }
+      // console.log(
+
+      //   add(1, 2) // 3
+      // );
+
+
+      // // 柯里化之后
+      // function addX(y) {
+      //   return function (x) {
+      //     return x + y;
+      //   };
+      // }
+      // console.log(
+      //   addX(2)(1), // 3
+      //   addX(2),
+      // );
+
+
+
+
+      // // ompose(f, compose(g, h))
+      // // // 等同于
+      // // compose(compose(f, g), h)
+      // // // 等同于
+      // // compose(f, g, h)
+
+    }
+
+
+    {
+      class Functor {
+        constructor(val) {
+          this.val = val;
+        }
+        map(f) {
+          return new Functor(f(this.val));
+        }
+
+        add(a) {
+          return a + 200
+        }
+        toUpperCase(val) {
+          return val.toUpperCase()
+        }
+        static of(val) {
+          return new Functor(val);
+        }
+      }
+
+      // console.log(
+      //   Functor.of(null).map(function (s) {
+      //     return s.toUpperCase();
+      //   })
+      // );
+
+      class Maybe extends Functor {
+        constructor(val) {
+          super(val)
+        }
+        map(f) {
+          return this.val ? new Maybe(f(this.val)) : new Maybe(null);
+        }
+        static of(val) {
+          return new Functor(val);
+        }
+      }
+
+
+      console.dir(Functor);
+      console.dir(Maybe);
+      // let f = Maybe.of('111')
+      // console.dir(f);
+
+      console.log(
+        Maybe.of('rtretert').map(function (s) {
+          return s.toUpperCase()
+        })
+      );
+
+
+
+    }
+
+
+    {
+
+
+      class Functor {
+        constructor(val) {
+          this.val = val;
+        }
+        map(f) {
+          return new Functor(f(this.val));
+        }
+
+        add(a) {
+          return a + 200
+        }
+        toUpperCase(val) {
+          return val.toUpperCase()
+        }
+        static of(val) {
+          return new Functor(val);
+        }
+      }
+      class Either {
+        constructor(left, right) {
+          this.left = left;
+          this.right = right;
+        }
+
+        map(f) {
+          return this.right ?
+            new Either(this.left, f(this.right)) :
+            new Either(f(this.left), this.right);
+        }
+      }
+
+      Either.of = function (left, right) {
+        return new Either(left, right);
+      }
+
+      var addOne = function (x) {
+        return x + 1;
+      }
+
+      console.log(
+        new Either(5, 6).map(addOne),
+        new Either(1, null).map(addOne),
+      )
+
+    }
+
+  </script>
+
+</body>
+
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script type="text/javascript">
+
+
+
+  class Functor {
+    constructor(executor) {
+      let _this = this;
+      this.value = undefined;
+
+      function resolve(value) {
+        _this.value = value;
+        console.log(_this.value)
+      }
+      executor(resolve)
+    }
+  }
+
+  function executor(resolve) {
+    setTimeout(() => {
+      resolve(100)
+    }, 500)
+  }
+
+  var a = new Functor(executor);
+
+
+
+</script>
+
+</html>

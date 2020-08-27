@@ -1,0 +1,35 @@
+// 这个是阮一峰的一个项目的使用样板
+{
+  "env": {
+    "node": true
+  },
+  "globals": {
+  },
+  "plugins": [
+  ],
+  "extends": "airbnb",
+  "rules": {
+    "camelcase": 0,
+    "comma-dangle": 0,
+    "func-names": 0,
+    "global-require": 0,
+    "prefer-arrow-callback": 0,
+    "prefer-template": 0,
+    "no-console": 0,
+    "no-constant-condition": 0,
+    "no-param-reassign": 0,
+    "no-shadow": 0,
+    "no-unused-expressions": 0,
+    "id-length": 0,
+    "prefer-rest-params": 0,
+    "react/prop-types": 0,
+    "strict": 0,
+    "vars-on-top": 0,
+    "max-len": 0,
+    "import/newline-after-import": 0,
+    "import/no-dynamic-require": 0,
+    "no-path-concat": 0,
+    "prefer-spread": 0,
+    "prefer-destructuring": 0
+  }
+}

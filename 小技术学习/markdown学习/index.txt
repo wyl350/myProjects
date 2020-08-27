@@ -1,0 +1,201 @@
+# 1. Markdown入门
+============
+## 概要
+Markdown是一种可以使用普通文本编辑器编写的标记语言，通过简单的标记语法，它可以使普通文本内容具有HTML的格式。
+## 课程详细
+01. 课程介绍
+02. 预览插件
+03. 设置标题
+04. 自然段改行
+05. 引用表现
+06. 增加分割线
+07. 强调表现
+08. 列表表示
+09. 超文本链接
+10. 代码高亮显示
+11. 图片显示
+12. 表格显示
+## 官方网站
+https://daringfireball.net/projects/markdown/
+## 视频计划和源代码
+* 每个视频只包括一个知识点，并控制在5-10分钟之内
+* 原代码共享
+  - Gitee@OSC  
+    https://gitee.com/komavideo/LearnMarkdown
+## GitHub Markdown Cheatsheet
+https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet
+## 基础知识
++ HTML
+## 开发工具
+* 记事本等文本编辑器
+ 1. Visual Studio Code(推荐)
+ 2. Brackets
+ 3. ATOM
+## 预览工具
+* Chrome + Markdown Anywhere
+## 小马视频频道
+http://komavideo.com
+
+# 2. Markdown预览插件
+* Markdown Anywhere插件
+在Chrome Store中安装Markdown Anywhere插件，然后启动本地web服务器预览本地文件。
+## 实战演习
+- 主页
+- 新闻
+- 体育
+- 军事
+- 娱乐
+- 网络
+
+# 3. 设置标题
+* html标题标记的生成(h1～h6)
+## 实战演习
+# h1标题
+## h2标题
+### h3标题
+#### h4标题
+##### h5标题
+###### h6标题
+h1标题
+===
+h2标题
+---
+
+# 4. 自然段改行
+这是第一段  
+这是第二段  
+这是第三段  
+东南西北中发白万筒条
+* 两个方法：
+  - 两个段落之间增加一个以上回车
+  - 段尾2个以上空格
+
+# 5. 引用表现
+* 引用文的表现方法：>
+## 实战演习
+这是第一段  
+这是第二段  
+> 一个老人死了。引用自一个名人  （注意，这里的结束引用，一定要在后面敲上一个以上的回车。）
+
+这是第三段   
+这是第四段 
+
+# 6.加分割线
+
+* 为文章分割线：
+  + ---
+  + ***
+  + ___
+  + - - -
+第一段
+
+---
+***
+***
+___
+- - -
+第二段
+### 与h2的区别
+区分的关键是 是与上一句的距离。  
+麻将才是世界第一运动
+---
+
+# 7. 强调表现
+* 斜体：*XXX*, _XXX_
+* 粗体：**XXX**, __XXX__
+# 8. 列表表示
+``` 
+- * + 三个符号的差别不大。
+```
+* 列表符号：-
+* 列表符号：*
+* 列表符号：+
+* 列表符号：数字
+
+- 项目
+  - 体育
+  - 军事
+  - 娱乐
+    - 救人
+    - 杀人
+      - 刀杀
+      - 枪杀
+
+- 主页
+- 新闻
+  - 体育
+  - 军事
+  - 娱乐
+- 读书
+
+* 读新闻
+* 经典课程
+    * vue入门
+    * vue进阶
+    * node.js教学
+* 经典游戏
+
+1. Python
+2. Javascript
+    1. Python
+    1. Javascript
+3. Ruby on Rails  
+fesfesfs afesfaefasfasf as  
+efas
+4. Swift/Kotlin
+    + Python
+    + Javascript
+    + Ruby on Rails
+5. Java
+
+# 9. 超文本链接
+* 超文本链接的书写  
+http://komavideo.com  
+<http://komavideo.com>  
+[小马视频](http://komavideo.com)  
+[小马视频](http://komavideo.com "小马视频频道的个人网站")  
+* 第二个参数显示title属性。
+
+# 10. 代码高亮显示
+
+* 代码高亮显示符号：`
+* 代码高亮显示符号：~
+* 4个空格也是可以的。
+* 一个单引号是可以在行内表示代码的。
+```js
+function add(x, y) {
+    return x+y;
+}
+```
+~~~js
+function add(x, y) {
+    return x+y;
+}
+~~~
+    function add(x, y) {
+        return x+y;
+    }
+说明：您可以使用 `add(x,y)` 函数计算两个数的和。  
+
+# 11. 图片显示
+
+* 图片的引用与显示：![]()
+![alt文字](图片url 图片title)
+
+[![git lessons](https://wyl350.github.io/myresume/%E6%88%91%E7%9A%84%E5%AE%B6%E5%BA%AD/%E5%AE%B6%E5%BA%AD%E7%9B%B8%E5%86%8C/%E7%8E%8B%E8%89%B3%E9%9B%B7.jpg)](https://wyl350.github.io/myresume/%E6%88%91%E7%9A%84%E5%AE%B6%E5%BA%AD/%E5%AE%B6%E5%BA%AD%E7%9B%B8%E5%86%8C/%E5%85%A8%E5%AE%B6%E7%85%A7%E7%89%87%E5%B0%8F.jpg)
+
+# 12. 表格显示
+### 使用 `-` 和 `|` 来制作表格。
+
+| TH1 | TH2 | TH3 |
+----|----|----
+| TD1 | TD3 | TD5 |
+| TD2 | TD4 | TD6 |
+### 使用表格对齐
+
+| 居左 | 居中 | 居右 | 234234 |erwerw|
+|:---|:---:|---:|-|-
+|1    纷纷   我DVD |
+|2 |3 |7|7|7|
+|4 |5 |6 |
+
