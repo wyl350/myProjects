@@ -1,0 +1,26 @@
+div{
+  // //  d:escape('#, ^, (, ), {, }, |, :, >, <, ;, ], [ , =');
+  //   filter: e("ms:alwaysHasItsOwnSyntax.For.Stuff()");
+  //   filter2: ~"ms:alwaysHasItsOwnSyntax.For.Stuff()";
+  //   width1: calc(960px-100px);
+  //   width: calc(~'960px-100px');
+  //   height: calc(~'960px-100px');
+    // font-family: %( "%a %a" , "Microsoft", "YaHei");
+    // font-family: %( "%A %a" , "Microsoft", "YaHei");
+    // font-family: %( "%s %s" , F60, "YaHei");
+    // font-family: %( "%s %s" , #ff6600, "YaHei");
+    // font-family: %( "%s %s" , "Microsoft", "YaHei");
+    // content: replace("Hello, maizi", "maizi", "LESS");
+    // content: replace("Hello, A", "A", "B");
+
+    // n:length(1px solid #0080ff);
+
+    @list: "A", "B", "C", "D";
+    n:extract(@list,4)
+} 
+// 转义为css
+div {
+  n: "D";
+}
+
+

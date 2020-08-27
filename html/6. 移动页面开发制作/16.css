@@ -1,0 +1,14 @@
+body {
+  background-color: deeppink;
+}
+div {
+  color: deeppink;
+  font-size: 14px;
+}
+a {
+  font-size: 14px;
+}
+a:hover {
+  font-size: 14px;
+}
+

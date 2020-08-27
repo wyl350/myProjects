@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    .father{
+      position: relative;
+      width: 500px;
+      height: 500px;
+      background-color: pink;
+
+    }
+    .damao{
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 200px;
+      height: 200px;
+      background-color: purple;
+
+    }
+    .ermao{
+      width: 250px;
+      height: 250px;
+      background-color: skyblue;
+      
+    }
+  </style>
+</head>
+<body>
+  <div class="father">
+    <div class="damao"></div>
+    <div class="ermao"></div>
+    因为父亲没有定位，那么就以浏览器为准，取得决定定位。同时不保留自己的位置。
+  </div>
+</body>
+</html>

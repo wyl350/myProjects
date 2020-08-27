@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    /* 因为图片是白色的，所以要给body背景色 */
+    body {
+      background-color: #333;
+    }
+
+    div.map {
+      position: relative;
+      width: 747px;
+      height: 616px;
+      background: url(media/map.png) no-repeat;
+      margin: 100px auto;
+    }
+
+    /* 这个盒子没有大小，内容全部靠子盒子撑开 */
+    div.map div[class='city1'] {
+      position: absolute;
+      top: 227px;
+      right: 193px;
+    }
+
+    div.map div[class='city2'] {
+      position: absolute;
+      top: 543px;
+      right: 192px;
+    }
+
+    div.map div[class='city3'] {
+      position: absolute;
+      top: 500px;
+      right: 80px;
+    }
+
+    /* 这个圆点就撑开了他的父盒子 */
+    div[class^='city'] .dotted {
+      width: 8px;
+      height: 8px;
+      background-color: #09f;
+      border-radius: 50%;
+    }
+
+    /* div[class^='city'] div[class^='pulse'] { */
+    div[class^='city'] div:nth-child(n+2) {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 8px;
+      height: 8px;
+      box-shadow: 0 0 12px #009dfd;
+      border-radius: 50%;
+    }
+
+    div[class^='city']>div:nth-child(2) {
+      animation: pulse 1.2s linear 0s infinite;
+    }
+
+    div[class^='city']>div:nth-child(3) {
+      animation: pulse 1.2s linear 0.4s infinite;
+    }
+
+    div[class^='city']>div:nth-child(4) {
+      animation: pulse 1.2s linear 0.8s infinite;
+    }
+
+    @keyframes pulse {
+      0% {}
+
+      70% {
+        /* 这里是不能使用transform：scale（） 的功能的，因为这里会同时放大阴影的面积，效果非常不好。 */
+        width: 40px;
+        height: 40px;
+        opacity: 1;
+      }
+
+      100% {
+        width: 70px;
+        height: 70px;
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="map">
+    <div class="city1">
+      <div class="dotted"></div>
+      <div class="pulse1"></div>
+      <div class="pulse2"></div>
+      <div class="pulse3"></div>
+    </div>
+    <div class="city2">
+      <div class="dotted"></div>
+      <div class="pulse1"></div>
+      <div class="pulse2"></div>
+      <div class="pulse3"></div>
+    </div>
+    <div class="city3">
+      <div class="dotted"></div>
+      <div class="pulse1"></div>
+      <div class="pulse2"></div>
+      <div class="pulse3"></div>
+    </div>
+  </div>
+</body>
+
+</html>

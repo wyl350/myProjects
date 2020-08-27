@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+  <meta charset='UTF-8'>
+  <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+  <script src='js/react.development.js'></script>
+  <script src='js/react-dom.development.js'></script>
+  <script src='js/prop-types.js'></script>
+  <script src='js/babel.min.js'></script>
+  <title>React-Html</title>
+  <style>
+    #app {
+      margin: 50px auto;
+      width: 600px;
+    }
+
+    fieldset {
+      border: 1px solid purple;
+      margin-bottom: 20px;
+    }
+
+    fieldset input {
+      width: 200px;
+      height: 30px;
+      margin: 10px 0;
+    }
+
+    table {
+      width: 600px;
+      border: 2px solid purple;
+      text-align: center;
+    }
+
+    thead {
+      background-color: purple;
+      color: #fff;
+    }
+  </style>
+</head>
+
+<body>
+  <div id='app'></div>
+
+  <script type='text/babel'>
+    class App extends React.Component {
+      constructor(props) {
+        super(props)
+        this.state = {
+          studentArr: [
+            { name: '周杰伦', age: 30, gender: '男', phone: '18899989839', },
+            { name: '谢霆锋', age: 30, gender: '男', phone: '18899989839', },
+            { name: '刘德华', age: 30, gender: '男', phone: '18899989839', },
+          ]
+        }
+      }
+      deleteFromArrIndex(index) {
+        const { studentArr } = this.state
+        studentArr.splice(index, 1)
+        this.setState({
+          studentArr,
+        })
+      }
+      addToArr(student) {
+        const { studentArr } = this.state
+        studentArr.unshift(student)
+        this.setState({
+          studentArr,
+        })
+      }
+      render() {
+        return (
+          <div>
+            <Add addToArr={() => this.addToArr()} />
+            <List studentArr={this.state.studentArr} deleteFromArrIndex={() => this.deleteFromArrIndex()} />
+          </div>)
+      }
+    }
+
+    class Add extends React.Component {
+      constructor(props) {
+        super(props)
+        this.stuName = React.createRef();
+        this.stuAge = React.createRef();
+        this.stuGender = React.createRef();
+        this.stuPhone = React.createRef();
+      }
+      static propTypes = {
+        addToArr: PropTypes.func.isRequired,
+      }
+      delWithClick() {
+        const stuName = this.stuName.current.value
+        const stuAge = this.stuAge.current.value
+        const stuGender = this.stuGender.current.value
+        const stuPhone = this.stuPhone.current.value
+        if (!stuName || !stuAge || !stuGender || !stuPhone) {
+          alert('所有的内容必须输入数值！')
+          return
+        }
+        this.props.addToArr({ stuName, stuAge, stuGender, stuPhone, })
+
+        this.stuName.current.value = ''
+        this.stuAge.current.value = ''
+        this.stuGender.current.value = ''
+        this.stuPhone.current.value = ''
+
+      }
+      render() {
+        return (<div>
+          <fieldset>
+            <legend>撩课信息录入系统(React版)</legend>
+            <div>
+              <span>姓名: </span>
+              <input ref={this.stuName} type="text" placeholder="请输入姓名" />
+            </div>
+            <div>
+              <span>年龄: </span>
+              <input ref={this.stuAge} type="text" placeholder="请输入年龄" />
+            </div>
+            <div>
+              <span>性别: </span>
+              <select ref={this.stuGender}>
+                <option >男</option>
+                <option >女</option>
+              </select>
+            </div>
+            <div>
+              <span>手机: </span>
+              <input ref={this.stuPhone} type="text" placeholder="请输入手机号码" />
+            </div>
+            <button onClick={() => this.delWithClick()}>创建新用户</button>
+          </fieldset>
+        </div>)
+      }
+    }
+
+    class List extends React.Component {
+      static propTypes = {
+        studentArr: PropTypes.array.isRequired,
+        deleteFromArrIndex: PropTypes.func.isRequired,
+      }
+      render() {
+        const { studentArr, deleteFromArrIndex } = this.props
+        console.log(studentArr)
+        console.log(deleteFromArrIndex)
+        return (<div>
+          <table>
+            <thead>
+              <tr>
+                <td>姓名</td>
+                <td>性别</td>
+                <td>年龄</td>
+                <td>手机</td>
+                <td>删除</td>
+              </tr>
+            </thead>
+            <tbody>
+              {
+
+                studentArr.map((stu, index) => (
+                  <tr key={index}>
+                    <td>{stu.name}</td>
+                    <td>{stu.gender}</td>
+                    <td>{stu.age}</td>
+                    <td>{stu.phone}</td>
+                    <td><button onClick={() => deleteFromArrIndex(index)}>删除</button></td>
+                  </tr>
+                ))
+              }
+            </tbody>
+          </table>
+        </div>)
+      }
+    }
+
+    ReactDOM.render(
+      <App />
+      ,
+      document.getElementById('app'))
+  </script>
+</body>
+
+</html>

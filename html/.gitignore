@@ -1,0 +1,25 @@
+﻿node_modules
+build/
+npm-debug.log
+.project
+*.pptx
+*.ppt
+*.avi
+*.rar
+*.zip
+
+
+
+
+
+
+# *.pdf
+# package-lock.json
+
+
+# *.[oa] o或者a结尾的文件不被git管理
+# *.pyc  通配文件不被git管理
+# !test.pyc 告诉git 这个文件不要被忽略，应该被git 管理
+# \!test.pyc 表示又纳入到了 不被git管理的范围
+# foo/  表示这个文件目录不被管理
+# **/res 表示顶层目录的res及其他目录的子目录也可以匹配到。

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    button {
+      cursor: pointer;
+    }
+
+    button[disabled] {
+      cursor: default;
+    }
+
+    input[type='search'] {
+      color: pink;
+    }
+
+    div[class^='icon'] {
+      color: purple;
+    }
+
+    div[class$='icon'] {
+      color: blue;
+    }
+
+    div[class*='ee'] {
+      color: red;
+    }
+    /* div[class*='icon'] {
+      color: black;
+    } */
+  </style>
+</head>
+
+<body>
+  <button>按钮</button>
+  <button>按钮</button>
+  <button disabled>按钮</button>
+  <button disabled>按钮</button>
+
+  <hr>
+
+  <input type="text" name="" id="" value="文本框">
+  <input type="text" name="" id="" value="文本框">
+  <input type="text" name="" id="" value="文本框">
+  <input type="search" name="" id="" value="搜索框">
+  <input type="search" name="" id="" value="搜索框">
+  <input type="search" name="" id="" value="搜索框">
+
+  <div class="icon1">图标1</div>
+  <div class="icon2">图标2</div>
+  <div class="icon3">图标3</div>
+  <div class="absicon">图标4</div>
+  <div class="12ee435">图标4</div>
+
+
+</body>
+
+</html>

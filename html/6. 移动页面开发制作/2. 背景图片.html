@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+  div{
+    width: 500px;
+    height: 500px;
+    border:2px solid red;
+    background: url(images/dog.jpg) no-repeat;
+    /* background-size: 500px 200px; */
+    /* background-size: 500px; */
+    /* background-size: 50%; */
+    /* cover 完全覆盖，可能有部分图片超出 */
+    /* background-size: cover;  */
+    /* 只要有一个边重合，就不再拉伸了，在盒子中可能有部分空白区域 */
+    background-size: content; 
+
+
+  }
+  </style>
+</head>
+<body>
+  <div></div>
+</body>
+</html>

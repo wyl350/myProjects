@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+  <meta charset='UTF-8'>
+  <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+  <script src='js/react.development.js'></script>
+  <script src='js/react-dom.development.js'></script>
+  <script src='js/prop-types.js'></script>
+  <script src='js/babel.min.js'></script>
+  <title>React-Html</title>
+</head>
+
+<body>
+  <div id='app'></div>
+  <script type='text/babel'>
+    class Dog extends React.Component {
+      constructor(props) {
+        super(props)
+        this.state = {
+          age: 1,
+          dogFriends: [],
+        }
+      }
+      static defaultProps = {
+        name: '旺财',
+        gender: '公',
+      }
+      static propTypes = {
+        name: PropTypes.number.isRequired,
+        gender: PropTypes.string.isRequired,
+      }
+
+      render() {
+        const { name, gender } = this.props
+        const { age, dogFriends } = this.state
+
+        return (
+          <div>
+            <p>狗名：{name}；性别：{gender}</p>
+            <p>年龄：{age}；狗友：{dogFriends}</p>
+            <ul>
+              {
+                dogFriends.map((friend, index) => (
+                  <li key={index}>{friend}</li>
+                ))
+              }
+            </ul>
+            <input type="button" value='改变内容' onClick={() => this.addYear()} />
+          </div >
+        )
+      }
+      addYear() {
+        const friends = this.state.dogFriends
+        friends.push('狗友' + Math.floor(Math.random() * 100))
+
+        this.setState({
+          age: this.state.age + 1,
+          dogFriends: friends,
+        })
+      }
+    }
+
+
+    ReactDOM.render(
+      <Dog name='我的' />
+      ,
+      document.getElementById('app'))
+  </script>
+</body>
+
+</html>

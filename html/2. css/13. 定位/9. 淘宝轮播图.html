@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    li {
+      list-style: none;
+    }
+
+    .taobao {
+      position: relative;
+      width: 520px;
+      height: 280px;
+      background-color: pink;
+      margin: 100px auto;
+    }
+
+    .arrow-l,
+    .arrow-r {
+      position: absolute;
+      top: 50%;
+      margin-top: -15px;
+      width: 20px;
+      height: 30px;
+      background-color: rgba(0, 0, 0, 0.2);
+      text-decoration: none;
+      color: #fff;
+      line-height: 30px;
+      border-top-right-radius: 15px;
+      border-bottom-right-radius: 15px;
+    }
+
+    .arrow-l {
+      left: 0;
+      text-align: left;
+      border-radius: 0 15px 15px 0;
+    }
+
+    .arrow-r {
+      right: 0;
+      text-align: right;
+      border-radius: 15px 0 0 15px;
+    }
+
+    .arrow-l:hover,
+    .arrow-r:hover {
+      background-color: rgba(0, 0, 0, 0.4);
+    }
+
+    .circle {
+      position: absolute;
+      left: 50%;
+      margin-left: -35px;
+      bottom: 15px;
+      width: 70px;
+      height: 13px;
+      background-color: rgba(255, 255, 255, 0.3);
+      border-radius: 7px;
+    }
+
+    .circle li {
+      float: left;
+      width: 8px;
+      height: 8px;
+      background-color: #fff;
+      margin: 3px;
+      border-radius: 50%;
+cursor: pointer;
+    }
+
+    .circle .current {
+      background-color: #ff5000;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="taobao">
+    <a href="#" class="arrow-l">&lt;</a>
+    <a href="#" class="arrow-r">&gt;</a>
+    <img src="taobao.jpg" alt="">
+    <ul class="circle">
+      <li></li>
+      <li class="current"></li>
+      <li></li>
+      <li></li>
+      <li></li>
+    </ul>
+  </div>
+</body>
+
+</html>

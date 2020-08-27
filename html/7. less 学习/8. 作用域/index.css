@@ -1,0 +1,12 @@
+.bgcolor {
+  width: 50px;
+}
+.bgcolor a {
+  color: #ff0000;
+}
+编译为： .bgcolor {
+  width: 50px;
+}
+.bgcolor a {
+  color: #ff0000;
+}

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    div {
+      display: flex;
+      width: 80%;
+      height: 300px;
+      background-color: pink;
+      /* 这样的话，就会让所有的子元素全部向下移动了 */
+      /* align-items: flex-end; */
+    }
+
+    div span {
+      width: 150px;
+      height: 100px;
+      margin-right: 5px;
+      background-color: purple;
+    }
+
+    div span:nth-child(3) {
+      align-self: flex-end;
+    }
+
+    div span:nth-child(2) {
+      order: -1;
+    }
+  </style>
+</head>
+
+<body>
+  <div>
+    <span>1</span>
+    <span>2</span>
+    <span>3</span>
+  </div>
+</body>
+
+</html>

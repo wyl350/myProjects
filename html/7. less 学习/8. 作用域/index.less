@@ -1,0 +1,18 @@
+@clolor:#ffffff;
+
+.bgcolor{
+  width: 50px;
+  a{
+    color: @clolor;
+  }
+}
+
+@clolor:#ff0000;
+
+编译为：
+.bgcolor {
+  width: 50px;
+}
+.bgcolor a {
+  color: #ff0000;
+}

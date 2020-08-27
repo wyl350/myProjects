@@ -1,0 +1,76 @@
+// #bgcolor(){
+//  background: #ffffff;
+//  .a{
+//    color: #888888;
+//    &:hover{
+//      color: #ff6600;
+//    }
+//    .b{
+//      background: #ff0000;
+//    }
+//  }
+// }
+
+// .wi(){
+//  background: green;
+//  color: #fff;
+//  .a{
+//    color: green;
+//    background: #000000;
+//  }
+// }
+
+// .bgcolor1{
+//  background: #fdfee0;
+//  #bgcolor>.a;
+// }
+// /*另一种*/
+// .bgcolor2{
+// .wi>.a;
+// }
+// 编译为css：
+// .bgcolor1 {
+//   background: #fdfee0;
+//   color: #888888;
+// }
+// .bgcolor1:hover {
+//   color: #ff6600;
+// }
+// .bgcolor1 .b {
+//   background: #ff0000;
+// }
+// /*另一种*/
+// .bgcolor2 {
+//   color: green;
+//   background: #000000;
+// }
+
+
+//省略>写法
+#bgcolor(){
+  background: #ffffff;
+  .a{
+    color: #888888;
+    &:hover{
+      color: #ff6600;
+    }
+    .b{
+      background: #ff0000;
+    }
+  }
+}
+.wi {
+  background: green;
+  color: #fff;
+  .a {
+    color: green;
+    background: #ffffff;
+  }
+}
+.bgcolor1{
+  background: #fdfee0;
+  #bgcolor .a;
+}
+.bgcolor2{
+  .wi .a;
+}

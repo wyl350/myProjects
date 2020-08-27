@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    div:nth-child(1) {
+      /* 传统盒子模型 */
+      width: 200px;
+      height: 200px;
+      background-color: pink;
+      padding: 10px;
+      border: 1px solid red;
+    }
+
+    div:nth-child(2) {
+      /* 有了这句话就让盒子编程css3的盒子模型 padding和border不影响盒子的大小 */
+      box-sizing: border-box;
+      /* 这个是传统的盒子模型 */
+      /* box-sizing: content-box; */
+      width: 200px;
+      height: 200px;
+      background-color: purple;
+      padding: 10px;
+      border: 1px solid blue;
+    }
+  </style>
+</head>
+
+<body>
+  <div></div>
+  <div></div>
+</body>
+
+</html>

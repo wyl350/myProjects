@@ -1,0 +1,29 @@
+/* 修改 container 的最大宽度为1280px 根据设计稿来修改的 */
+
+@media screen and (min-width:1280px){
+    .container{
+      width: 1280px;
+    }
+}
+
+/* header */
+header {
+  padding-left: 0!important;
+}
+
+.logo{
+  background-color: #429ad9;
+}
+
+.logo img {
+  /* display: block; */
+  /* width: 100%; */
+  /* logo图片不需要缩放 */
+  max-width: 100%;
+  /* margin: 0 auto; */
+}
+
+.nav {
+  background-color: #eee;
+  border-bottom: 1px solid #ccc;
+}

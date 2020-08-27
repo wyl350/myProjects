@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    /* div:nth-child(1) {
+      background-color: pink;
+    }
+
+    div:nth-child(2) {
+      background-color: blue;
+    } */
+
+    /* div :nth-child(1) {
+      background-color: pink;
+    }
+    div :nth-child(2) {
+      background-color: purple;
+    } */
+
+    /* 这个是选择不到的 */
+    /* div span:nth-child(3) {
+      background-color: pink;
+    }
+    div span:nth-child(2) {
+      background-color: purple;
+    }
+    div span:nth-child(3) {
+      background-color: pink;
+    } */
+
+    div span:first-of-type{
+      background-color: purple;
+    }
+    div span:last-of-type{
+      background-color: pink;
+    }
+    div span:nth-of-type(2){
+      background-color: red;
+    }
+
+  </style>
+</head>
+
+<body>
+  <div>
+    <p>我是第一个p</p>
+    <span>我是span</span>
+    <span>我是span</span>
+    <span>我是span</span>
+  </div>
+  <div>我是第二个div</div>
+</body>
+
+</html>

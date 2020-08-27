@@ -1,0 +1,24 @@
+div {
+  background: #ff0000;
+  background2: #ff0000;
+}
+div {
+  background: rgba(255, 0, 0, 0.5);
+  background2: rgba(255, 0, 0, 0.5);
+}
+div {
+  background: #80ff0000;
+  background2: #80ff0000;
+}
+div {
+  background: hsl(90, 100%, 50%);
+}
+div {
+  background: hsla(90, 100%, 50%, 0.5);
+}
+div {
+  background: #408000;
+}
+div {
+  background: rgba(64, 128, 0, 0.08);
+}

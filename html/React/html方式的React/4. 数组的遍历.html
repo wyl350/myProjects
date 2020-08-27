@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+  <meta charset='UTF-8'>
+  <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+  <script src='js/react.development.js'></script>
+  <script src='js/react-dom.development.js'></script>
+  <script src='js/prop-types.js'></script>
+  <script src='js/babel.min.js'></script>
+  <title>React-Html</title>
+</head>
+
+<body>
+  <div id='app'></div>
+  <script type='text/babel'>
+    const dataArr = [
+      { name: '周杰伦', age: 33 },
+      { name: 'liudehua', age: 33 },
+      { name: 'wode ', age: 33 },
+      { name: 'nide', age: 33 },
+    ]
+    ReactDOM.render(
+      <ul>
+        {
+          dataArr.map((data, index) =>( <li key={index}>{index + 1} --- 姓名： {data.name} --- 年龄：{data.age}</li>
+          ))
+        }
+      </ul>
+      ,
+      document.getElementById('app'))
+  </script>
+</body>
+
+</html>

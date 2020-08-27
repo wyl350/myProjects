@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+  <meta charset='UTF-8'>
+  <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+  <script src='js/react.development.js'></script>
+  <script src='js/react-dom.development.js'></script>
+  <script src='js/prop-types.js'></script>
+  <script src='js/babel.min.js'></script>
+  <title>React-Html</title>
+</head>
+
+<body>
+  <div id='app'></div>
+  <script type='text/babel'>
+    const str = '撩课'
+    const mystyle = {
+      backgroundColor: 'purple',
+      color: 'green',
+    }
+    ReactDOM.render(
+      <div>
+        <h2>多层标签嵌套</h2>
+        <h3>zheshi ceshi</h3>
+        <span>{str}</span>
+        <p>{str + 545454}</p>
+        <p>1 + 45 + 22 = {1 + 45 + 22}</p>
+        <p style={{color: 'green',backgroundColor: 'purple',}}>来电颜色</p>
+        <p style={mystyle}>这里是我的颜色</p>
+
+      </div>
+      ,
+      document.getElementById('app'))
+  </script>
+</body>
+
+</html>

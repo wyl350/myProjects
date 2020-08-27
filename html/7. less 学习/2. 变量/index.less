@@ -1,0 +1,37 @@
+@green:green;
+@baise:white;
+
+header, 
+footer{
+  background-color: @green;
+  h1{
+    color: @baise;
+  }
+}  
+
+@kuandu:width;
+// 这里这个变量即是类选择器又是属性名
+.@{kuandu}{
+  @{kuandu}:150px;
+}
+// https://www.baidu.com/img/PCtm_d9c8750bed0b3c7d089fa7d55720d6cf.png
+// 作为url使用
+@imgurl:'https://www.baidu.com/img/';
+header{
+  background: @green url('@{imgurl}PCtm_d9c8750bed0b3c7d089fa7d55720d6cf.png');
+  height: 500px;
+}
+
+
+//定义多个相同名称的变量时
+@var: 0;
+
+.class {
+  @var: 1;
+    .brass {
+      @var: 2;
+      three: @var;  //这是的值是3
+      @var: 3;
+    }
+  one: @var;  //这是的值是1
+}

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+  <meta charset='UTF-8'>
+  <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+  <script src='js/react.development.js'></script>
+  <script src='js/react-dom.development.js'></script>
+  <script src='js/prop-types.js'></script>
+  <script src='js/babel.min.js'></script>
+  <title>React-Html</title>
+</head>
+
+<body>
+  <div id='app'></div>
+
+
+  <script type='text/babel'>
+    function Liao() {
+      return (<div>
+        <h2>撩课</h2>
+        <img src="https://www.baidu.com/img/PCtm_d9c8750bed0b3c7d089fa7d55720d6cf.png" width="200px" />
+      </div>)
+    }
+    ReactDOM.render(
+      <Liao />
+      ,
+      document.getElementById('app'))
+  </script>
+</body>
+
+</html>

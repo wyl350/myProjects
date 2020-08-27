@@ -1,0 +1,19 @@
+//混合的返回值
+.average(@x, @y) {
+  @average: ((@x + @y) / 2);
+  @he:(@x + @y);
+}
+
+div {
+  .average(16px, 50px);
+  padding: @average;
+  margin: @he;
+}
+// 编译为：
+div {
+  padding: 33px;
+  margin: 66px;
+}
+
+
+

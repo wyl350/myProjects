@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    .damao,
+    .ermao,
+    .sanmao {
+      position: absolute;
+      width: 200px;
+      height: 200px;
+      z-index: 2;
+      background-color: red;
+    }
+
+    .ermao {
+      top: 50px;
+      left: 50px;
+      z-index: 1;
+      background-color: green;
+    }
+
+    .sanmao {
+      top: 100px;
+      left: 100px;
+      z-index: 0;
+      background-color: blue;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="damao"></div>
+  <div class="ermao"></div>
+  <div class="sanmao"></div>
+</body>
+
+</html>
